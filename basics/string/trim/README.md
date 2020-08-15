@@ -1,6 +1,6 @@
 # Trim a String
 
-Terrraform provides multiple functions to remove characters and substrings from a string:
+Terraform provides multiple functions to remove characters and substrings from a string:
 
 | Function   | Description |
 |------------|-------------|

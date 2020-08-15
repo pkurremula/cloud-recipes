@@ -2,6 +2,21 @@
 
 I started this project as I was learning Terraform. Over time, it evolved into a handy reference for me or anyone to look up a Terraform recipe.
 
+## Recipes
+
+* Basics
+  * Collection
+    * [List to string](basics/collection/list-to-string) - Convert a list of strings to a string of the objects delimited by comma.
+    * [Map](basics/collection/map) - Create maps using the `map` function and `{}` operators.
+  * String
+    * [Append to a string](basics/string/append) - Append a string to a string, the Terraform way.
+    * [Formatting and interpolation](basics/string/format-n-interpolation) - Terraform string formatting and interpolation.
+    * [Regex](basics/string/regex) - Regular expression in Terraform.
+    * [Reverse a string](basics/string/reverse) - Reverses the characters in a string.
+    * [Trim a string](basics/string/trim) - Ways to remove characters from the start/end of a string.
+  * Utility
+    * [Random password generator](basics/utility/password-generator) - Random password generator.
+
 ## Setup
 
 Currently, the setup is for Mac using [Homebrew](https://brew.sh/).
