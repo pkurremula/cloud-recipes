@@ -13,6 +13,10 @@ Here's a table highlighting the 3 loop constructs:
 | [for](for)           | list and map       |  `if` expression can be used to perform filtering. |
 | [for_each](for-each) | resource and block |                                                    |  
 
+## Other Recipes
+
+* [Iterate a Map](for-map) - Loop thru a map.
+
 ## Reference
 
 * [Terraform 0.12 Preview: For and For-Each](https://www.hashicorp.com/blog/hashicorp-terraform-0-12-preview-for-and-for-each/)
