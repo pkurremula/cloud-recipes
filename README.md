@@ -8,6 +8,8 @@ I started this project as I was learning Terraform. Over time, it evolved into a
   * Collection
     * [List to string](basics/collection/list-to-string) - Convert a list of strings to a string of the objects delimited by comma.
     * [Map](basics/collection/map) - Create maps using the `map` function and `{}` operators.
+  * Loop
+    * [count vs for vs for_each](basics/loop) - The 3 constructs `count`, `for`, and `for_each` for looping in Terraform.
   * String
     * [Append to a string](basics/string/append) - Append a string to a string, the Terraform way.
     * [Formatting and interpolation](basics/string/format-n-interpolation) - Terraform string formatting and interpolation.
