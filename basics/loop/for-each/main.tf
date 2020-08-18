@@ -15,7 +15,24 @@ data "null_data_source" "foreach" {
   }
 }
 
+data "null_data_source" "foreach_if" {
+  // Return countries that starts with c.
+  for_each = {
+    for key, country in toset(local.countries) :
+      key => upper(country) if length(regexall("^c", country)) > 0
+  }
+
+  inputs = {
+    countries = upper(each.value)
+  }
+}
+
 output "uppercase" {
   // foreach returns a map of maps. Use the values function to convert to a list.
   value = values(data.null_data_source.foreach)[*].outputs.countries
+}
+
+output "uppercase_if" {
+  // foreach returns a map of maps. Use the values function to convert to a list.
+  value = values(data.null_data_source.foreach_if)[*].outputs.countries
 }

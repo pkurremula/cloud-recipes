@@ -15,7 +15,7 @@ Here's a table highlighting the 3 loop constructs:
 
 ## Other Recipes
 
-* [Iterate a Map](for-map) - Loop thru a map.
+* [Iterate a Map](for-map) - Loop through a map.
 
 ## Reference
 
