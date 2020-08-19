@@ -21,6 +21,9 @@ I started this project as I was learning Terraform. Over time, it evolved into a
     * [Trim a string](basics/string/trim) - Ways to remove characters from the start/end of a string.
   * Utility
     * [Random password generator](basics/utility/password-generator) - Random password generator.
+* AWS
+  * EC2
+    * [Simple](aws/ec2/simple) - A simple recipe to create an EC2 instance.
 
 ## Setup
 
