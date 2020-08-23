@@ -7,6 +7,7 @@ provider "aws" {
   version = "~> 3.2.0"
 }
 
+// Query the latest Amazon Linux AMI.
 data "aws_ami" "amazon_linux" {
   most_recent = true
   owners      = ["amazon"]
@@ -18,7 +19,8 @@ data "aws_ami" "amazon_linux" {
   }
 }
 
+// EC2 host.
 resource "aws_instance" "host" {
-  ami = var.ami_id == "" ? data.aws_ami.amazon_linux.id : var.ami_id
+  ami           = var.ami_id == "" ? data.aws_ami.amazon_linux.id : var.ami_id
   instance_type = var.instance_type
 }
