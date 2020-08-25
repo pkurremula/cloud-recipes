@@ -6,8 +6,10 @@ I started this project as I was learning Terraform. Over time, it evolved into a
 
 * Basics
   * Collection
-    * [List to string](basics/collection/list-to-string) - Convert a list of strings to a string of the objects delimited by comma.
-    * [Map](basics/collection/map) - Create maps using the `map` function and `{}` operators.
+    * [Clean up a list](basics/collection/clean-up) - Use distinct and compact to clean up a list.
+    * [List to string](basics/collection/list-to-string) - Convert a list of strings to a string of the objects delimited by a comma.
+    * [Map](basics/collection/map) - Create maps using the `{}` operator and the `map` function.
+    * [Operator \[\] vs Element](basics/collection/operator-element) - The difference between the `[]` operator and  the`element` function.
   * If-Else
     * [If-Else conditional](basics/if-else) - Sample code that demonstrates how if-else statements are implemented in Terraform.  
   * Loop
@@ -24,6 +26,8 @@ I started this project as I was learning Terraform. Over time, it evolved into a
 * AWS
   * EC2
     * [Simple](aws/ec2/simple) - A simple recipe to create an EC2 instance.
+    * [Production](aws/ec2/production) - A recipe to create an EC2 instance in production.
+    * [Cluster](aws/ec2/cluster) - A recipe to create a cluster of multiple EC2 instances.
 
 ## Setup
 
