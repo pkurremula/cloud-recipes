@@ -25,7 +25,7 @@ However, you want to be able to pass additional parameters to configure the EC2 
    ```bash
    $ terraform init
    $ terraform apply
-   ```   
+   ```
 
 ## Notes
 
