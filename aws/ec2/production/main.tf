@@ -29,16 +29,6 @@ resource "aws_key_pair" "default" {
   public_key = file("${path.cwd}/${local.ssh_key_name}.pub")
 }
 
-resource "aws_security_group_rule" "all_egress" {
-  from_port   = 0
-  protocol    = "-1"
-  to_port     = 0
-  type        = "egress"
-  cidr_blocks = ["0.0.0.0/0"]
-
-  security_group_id = aws_security_group.http.id
-}
-
 // EC2 host.
 resource "aws_instance" "host" {
   // Use the specified AMI if it's passed as a variable, otherwise use the latest
