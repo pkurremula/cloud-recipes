@@ -28,6 +28,8 @@ I started this project as I was learning Terraform. Over time, it evolved into a
     * [Simple](aws/ec2/simple) - A simple recipe to create an EC2 instance.
     * [Production](aws/ec2/production) - A recipe to create an EC2 instance in production.
     * [Cluster](aws/ec2/cluster) - A recipe to create a cluster of multiple EC2 instances.
+  * Security Group
+    * [Simple](aws/security-group/simple) - A simple recipe to create a security group.  
 
 ## Setup
 

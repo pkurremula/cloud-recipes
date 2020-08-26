@@ -35,8 +35,8 @@ resource "aws_instance" "host" {
   // Amazon Linux AMI for the region.
   ami = var.ami_id == "" ? data.aws_ami.amazon_linux.id : var.ami_id
 
-  instance_type   = var.instance_type
-  key_name        = local.ssh_key_name
+  instance_type = var.instance_type
+  key_name      = local.ssh_key_name
 
   // This assumes that we are using the default VPC. If you are using a non-default
   // VPC, use `vpc_security_group_ids`.

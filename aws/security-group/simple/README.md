@@ -4,18 +4,12 @@ Here's a recipe that creates security groups in AWS.
 
 There are 2 ways to define an AWS security group:
 
-1. Using a standalone `aws_security_group` module with embedded `ingress` and `egress` attributes.
+1. Using a standalone `aws_security_group` module with embedded `ingress` and `egress` blocks.
 1. Using a `aws_security_group` module with associated a set of `aws_security_group_rule` modules
 
 **NOTE: This creates a resource in AWS after running `terraform apply`. Don't forget to remove the resource by running `terraform destroy` after you are done.**
 
 ## Setup
-
-1. Run `create-sshkey.sh` to create an SSH key pair. The key files created will be ignored by git - see [.gitignore](.gitignore). 
-
-   ```bash
-   $ ./create-sshkey.sh
-   ```
    
 1. Create a `terraform.tfvars` and enter the pertinent values.
 
