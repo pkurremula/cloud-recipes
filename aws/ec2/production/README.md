@@ -27,6 +27,12 @@ However, you want to be able to pass additional parameters to configure the EC2 
    $ terraform apply
    ```
 
+1. Connect to the instance.
+
+   ```bash
+   $ ssh -i ./id-terraform-rsa "ec2-user@$(terraform output public_dns)"
+   ```
+
 ## Notes
 
 ### Parameters security_groups vs vpc_security_group_ids
