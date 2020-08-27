@@ -21,6 +21,8 @@ I started this project as I was learning Terraform. Over time, it evolved into a
     * [Regex](basics/string/regex) - Regular expression in Terraform.
     * [Reverse a string](basics/string/reverse) - Reverses the characters in a string.
     * [Trim a string](basics/string/trim) - Ways to remove characters from the start/end of a string.
+  * Variables
+    * [Declaration](basics/variables/declaration) - Examples of how to declare variables of the most common used types in Terraform.  
   * Utility
     * [Random password generator](basics/utility/password-generator) - Random password generator.
 * AWS
@@ -28,8 +30,10 @@ I started this project as I was learning Terraform. Over time, it evolved into a
     * [Simple](aws/ec2/simple) - A simple recipe to create an EC2 instance.
     * [Production](aws/ec2/production) - A recipe to create an EC2 instance in production.
     * [Cluster](aws/ec2/cluster) - A recipe to create a cluster of multiple EC2 instances.
+    * [User-data](aws/ec2/user-data) - A recipe that uses the `template_file` module to inject configurations and then pass the user-data to configure EC2 instance during its launch.
   * Security Group
     * [Simple](aws/security-group/simple) - A simple recipe to create a security group.  
+    * [Dynamic](aws/security-group/dynamic) - A recipe that creates multiple rules in a security group using the `dynamic` block and a list.
 
 ## Setup
 

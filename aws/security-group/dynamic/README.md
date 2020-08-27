@@ -1,6 +1,6 @@
 # Security Group Rules Using Dynamic Block
 
-This recipe creates multiple rules of a security group using the `dynamic` block and a list.
+This recipe creates multiple rules in a security group using the `dynamic` block and a list.
 
 **NOTE: This creates a resource in AWS after running `terraform apply`. Don't forget to remove the resource by running `terraform destroy` after you are done.**
 
