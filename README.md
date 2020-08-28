@@ -22,9 +22,10 @@ I started this project as I was learning Terraform. Over time, it evolved into a
     * [Reverse a string](basics/string/reverse) - Reverses the characters in a string.
     * [Trim a string](basics/string/trim) - Ways to remove characters from the start/end of a string.
   * Variables
-    * [Declaration](basics/variables/declaration) - Examples of how to declare variables of the most common used types in Terraform.  
-  * Utility
-    * [Random password generator](basics/utility/password-generator) - Random password generator.
+    * [Declaration](basics/variables/declaration) - Examples of how to declare variables of the most common used types in Terraform.
+    * [Conversion](basics/variables/conversion) - Examples of converting types in Terraform. 
+  * Utilities
+    * [Random password generator](basics/utils/password-generator) - Random password generator.
 * AWS
   * EC2
     * [Simple](aws/ec2/simple) - A simple recipe to create an EC2 instance.
