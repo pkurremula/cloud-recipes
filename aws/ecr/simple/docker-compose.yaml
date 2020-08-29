@@ -1,0 +1,12 @@
+version: '3.7'
+
+services:
+  hellonode:
+    ports:
+      - "8080:8080"
+    container_name: hellonode
+    build:
+      context: ../../../common/docker
+      dockerfile: Dockerfile
+    # Tag
+    image: hellonode

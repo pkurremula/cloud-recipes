@@ -34,9 +34,11 @@ I started this project as I was learning Terraform. Over time, it evolved into a
     * [Production](aws/ec2/production) - A recipe to create an EC2 instance in production.
     * [Cluster](aws/ec2/cluster) - A recipe to create a cluster of multiple EC2 instances.
     * [User-data](aws/ec2/user-data) - A recipe that uses the `template_file` module to inject configurations and then pass the user-data to configure EC2 instance during its launch.
+  * ECR
+    * [Simple](aws/ecr/simple) - A simple recipe to create an ECR repository.
   * Security Group
     * [Simple](aws/security-group/simple) - A simple recipe to create a security group.  
-    * [Dynamic](aws/security-group/dynamic) - A recipe that creates multiple rules in a security group using the `dynamic` block and a list.
+    * [Dynamic](aws/security-group/dynamic) - A recipe that creates multiple rules in a security group using the `dynamic` block and a list.  
 
 ## Setup
 

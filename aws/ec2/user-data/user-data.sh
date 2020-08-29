@@ -39,8 +39,8 @@ var handleRequest = function(request, response) {
   response.end('Hello, World!\nHostname: ' + os.hostname() + '\n');
 };
 
-var www = http.createServer(handleRequest);
-www.listen(port, () => {
+var server = http.createServer(handleRequest);
+server.listen(port, () => {
   console.log('server listening on port ' + port + '\n');
 });
 EOF
