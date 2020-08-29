@@ -26,6 +26,8 @@ I started this project as I was learning Terraform. Over time, it evolved into a
     * [Conversion](basics/variables/conversion) - Examples of converting types in Terraform. 
   * Utilities
     * [Random password generator](basics/utils/password-generator) - Random password generator.
+* Tools
+  * [Makefile](tools/makefile) - A sample Makefile for a Terraform project.    
 * AWS
   * EC2
     * [Simple](aws/ec2/simple) - A simple recipe to create an EC2 instance.
