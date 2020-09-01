@@ -5,6 +5,7 @@ terraform {
 provider "aws" {
   region  = var.region
   version = "~> 3.2.0"
+  profile = "terraform-recipes"
 }
 
 // There are 2 ways to define an AWS security group:
@@ -17,20 +18,20 @@ resource "aws_security_group" "embedded_rules_sg" {
   name        = "embedded-sg"
   description = "Security group with embedded ingresses and egresses."
   tags = {
-    "Terraform-managed" = true
+    "Terraform" = true
   }
 
   ingress {
-    from_port = 80
-    to_port = 80
-    protocol = "tcp"
+    from_port   = 80
+    to_port     = 80
+    protocol    = "tcp"
     cidr_blocks = ["0.0.0.0/0"]
   }
 
   egress {
-    from_port = 0
-    to_port = 0
-    protocol = -1
+    from_port   = 0
+    to_port     = 0
+    protocol    = -1
     cidr_blocks = ["0.0.0.0/0"]
   }
 }
@@ -47,10 +48,10 @@ resource "aws_security_group" "associated_rules_sg" {
 }
 
 resource "aws_security_group_rule" "http_ingress" {
-  from_port = 80
-  to_port   = 80
-  protocol  = "tcp"
-  type      = "ingress"
+  from_port   = 80
+  to_port     = 80
+  protocol    = "tcp"
+  type        = "ingress"
   cidr_blocks = ["0.0.0.0/0"]
 
   security_group_id = aws_security_group.associated_rules_sg.id

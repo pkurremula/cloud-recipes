@@ -5,6 +5,7 @@ terraform {
 provider "aws" {
   region  = var.region
   version = "~> 3.2.0"
+  profile = "terraform-recipes"
 }
 
 locals {
@@ -31,7 +32,7 @@ resource "aws_security_group" "dynamic_sg" {
   name        = "dynaimc-sg"
   description = "Security group with multiple rules defined through Terraform dynamic directive."
   tags = {
-    "Terraform-managed" = true
+    "Terraform" = true
   }
 
   dynamic "ingress" {

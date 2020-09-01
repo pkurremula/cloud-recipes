@@ -52,11 +52,20 @@ Currently, the setup is for Mac using [Homebrew](https://brew.sh/).
    $ /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install.sh)"
    ```
 
-1. Install the following Homebrew packages.
+1. Install the Terraform.
 
    ```bash
-   $ brew install terraform awscli
-   $ brew cask install google-cloud-sdk
+   $ brew install terraform
+   ```
+
+### AWS Setup
+
+All AWS terraform recipes uses the AWS profile called `terraform-recipes`. So we need to create the profile in the aws profile and credentials files.
+
+1. Install AWS CLI tool.
+
+   ```bash
+   $ brew install awscli
    ```
 
 1. Configure AWS CLI tool.
@@ -73,27 +82,35 @@ Currently, the setup is for Mac using [Homebrew](https://brew.sh/).
     aws_access_key_id=FERJHF348fFD3EXAMPLE
     aws_secret_access_key=jdeiry34824/JDSFryewd3274dsdhfEXAMPLE
     
-    [dev]
-    aws_access_key_id=FERJHF348fFD3EXAMPLE
+    [terraform-recipes]
+    aws_access_key_id=AWS_FERJHF348fFD3EXAMPLE
     aws_secret_access_key=jdeiry34824/JDSFryewd3274dsdhfEXAMPLE
     
     $ vi ~/.aws/config
     [default]
-    region = us-west-2
+    region = us-east-1
     output = json
     
-    [profile dev]
-    region = us-east-1
+    [profile terraform-recipes]
+    region = us-west-2
     output = text
     ```
    
 1. Verify that `awscli` is working by running the following:
 
    ```bash
-   $ aws ec2 describe-instances --profile dev
+   $ aws ec2 describe-instances --profile terraform-recipes
    ```   
-   
-1. Configure Google Cloud CLI Tool.
+
+### GCP Setup
+
+1. Install GCP SDK.
+
+   ```bash
+   $ brew cask install google-cloud-sdk
+   ```
+
+1. Configure Google SDK.
 
    ```bash
    $ gcloud config set project [project-id]
