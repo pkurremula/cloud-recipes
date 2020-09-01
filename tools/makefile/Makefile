@@ -3,11 +3,11 @@
 .PHONY: apply clean destroy help init plan
 
 PROJECT := $(shell basename "$(PWD)")
-BOLD=$(shell tput bold)
-RED=$(shell tput setaf 1)
-GREEN=$(shell tput setaf 2)
-BLUE=$(shell tput setaf 4)
-RESET=$(shell tput sgr0)
+BOLD := $(shell tput bold)
+RED := $(shell tput setaf 1)
+GREEN := $(shell tput setaf 2)
+BLUE := $(shell tput setaf 4)
+RESET := $(shell tput sgr0)
 
 ##@ apply: Apply terraform
 

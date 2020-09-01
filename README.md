@@ -38,7 +38,9 @@ I started this project as I was learning Terraform. Over time, it evolved into a
     * [Simple](aws/ecr/simple) - A simple recipe to create an ECR repository.
   * Security Group
     * [Simple](aws/security-group/simple) - A simple recipe to create a security group.  
-    * [Dynamic](aws/security-group/dynamic) - A recipe that creates multiple rules in a security group using the `dynamic` block and a list.  
+    * [Dynamic](aws/security-group/dynamic) - A recipe that creates multiple rules in a security group using the `dynamic` block and a list.
+  * VOC
+    * [Simple](aws/vpc/simple) - A simple recipe to create a VPC.
 
 ## Setup
 
