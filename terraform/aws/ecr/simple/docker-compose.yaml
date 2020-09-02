@@ -6,7 +6,7 @@ services:
       - "8080:8080"
     container_name: hellonode
     build:
-      context: ../../../common/docker
+      context: ../../../../docker/hello-node
       dockerfile: Dockerfile
     # Tag
     image: hellonode
