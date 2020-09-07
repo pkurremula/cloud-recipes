@@ -35,7 +35,7 @@ A simple recipe for creating an ECR repository.
 1. Tag the Docker image to associate it with the ECR repository and then push to ECR.
 
    ```bash
-   $ docker tag hellonode "$(terraform output repository_url)"
+   $ docker tag hello-node "$(terraform output repository_url)"
    $ docker push "$(terraform output repository_url)"
    ```
 

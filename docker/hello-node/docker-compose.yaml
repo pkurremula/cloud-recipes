@@ -6,7 +6,7 @@ services:
       - "8080:8080"
     container_name: hello-node
     build:
-      context: ../../../../docker/hello-node
+      context: .
       dockerfile: Dockerfile
     # Tag
     image: hello-node

@@ -1,0 +1,13 @@
+{
+  "name": "hello-node",
+  "version": "1.0.0",
+  "description": "Simple example of node.js express.",
+  "author": "Samuel Chow",
+  "license": "MIT",
+  "dependencies": {
+    "pino": "^6.5.1"
+  },
+  "scripts": {
+    "start": "node index.js"
+  }
+}
