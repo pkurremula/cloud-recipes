@@ -1,0 +1,26 @@
+# Common files to ignore for building a Node.js Docker image.
+
+# IDE
+**/.vscode
+**/.idea
+**/.editorconfig
+
+# Git
+**/.git
+
+# NPM
+**/node_modules/
+**/npm-debug.log
+**/.npmrc
+
+# CI
+**/dist
+**/coverage
+
+# Config
+**/.env
+**/.aws
+
+# Project
+**/*.md
+**/LICENSE

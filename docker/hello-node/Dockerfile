@@ -1,6 +1,6 @@
 # --- Build Stage ---
 
-FROM node:alpine as build
+FROM node:14.9.0-alpine as build
 
 # Copy package.json and related files.
 WORKDIR /app
@@ -14,18 +14,13 @@ COPY index.js ./
 
 # --- Final Stage ---
 
-FROM node:alpine
+FROM node:14.9.0-alpine
 
 WORKDIR /app
 COPY --from=build --chown=node:node /app ./
 
 # Install tini.
-# The best way to handle system interrupts eg. SIGINT or SIGTEM is
-# 1. Implement system signal handlers in JavaScript. See index.js.
-# 2. If we don't have access to the source code, use tini and wrap node around it.
-RUN apk update && \
-    apk upgrade && \
-    apk add --no-cache tini
+RUN apk add --no-cache tini
 
 # Run it as a non-privileged user.
 USER node

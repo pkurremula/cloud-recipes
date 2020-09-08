@@ -1,6 +1,6 @@
-# A Collection of Terraform Recipes.
+# A Collection of Terraform Recipes
 
-I started this project as I was learning Terraform. Over time, it evolved into a handy reference for me or anyone to look up a Terraform recipe.
+A handy reference and recipes on Terraform.
 
 ## Recipes
 
