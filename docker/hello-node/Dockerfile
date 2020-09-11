@@ -1,9 +1,9 @@
 # --- Build Stage ---
 
-FROM node:14.9.0-alpine as build
+FROM node:14.9.0-alpine3.12 as build
 
 # Copy package.json and related files.
-WORKDIR /app
+WORKDIR /src
 COPY package*.json ./
 
 # Install packages.
@@ -14,10 +14,11 @@ COPY index.js ./
 
 # --- Final Stage ---
 
-FROM node:14.9.0-alpine
+FROM node:14.9.0-alpine3.12
 
+# Copy the source files over.
 WORKDIR /app
-COPY --from=build --chown=node:node /app ./
+COPY --from=build --chown=node:node /src ./
 
 # Install tini.
 RUN apk add --no-cache tini

@@ -13,14 +13,10 @@
 # so that it is included in the image.
 Dockerfile*
 
-# NPM
-**/node_modules/
-**/npm-debug.log
-**/.npmrc
-
 # CI
-**/dist
+**/bin
 **/coverage
+**/vendor
 
 # Config
 **/.env

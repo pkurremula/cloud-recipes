@@ -39,7 +39,7 @@ const shutdown = function() {
 // Handler
 
 const handleRequest = function(request, response) {
-    logger.info(`received request for URL: ${request.url} from ${request.connection.remoteAddress}`);
+    logger.info(`received request for url: ${request.url} from ${request.connection.remoteAddress}`);
     response.writeHead(200);
     response.end(`Hello, World!\nServer: ${os.hostname()}\n`);
 };

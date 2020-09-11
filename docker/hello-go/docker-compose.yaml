@@ -1,0 +1,12 @@
+version: '3.7'
+
+services:
+  hello-go:
+    ports:
+      - "8080:8080"
+    container_name: hello-go
+    build:
+      context: .
+      dockerfile: Dockerfile
+    # Tag
+    image: hello-go
