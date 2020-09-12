@@ -60,16 +60,6 @@ resource "aws_security_group" "http" {
   }
 }
 
-// User data.
-data "template_file" "user_data" {
-  template = file("${path.cwd}/${local.user_data_file}")
-
-  vars = {
-    port         = var.port
-    node_version = var.node_version
-  }
-}
-
 // EC2 host.
 resource "aws_instance" "host" {
   // Use the specified AMI if it's passed as a variable, otherwise use the latest
@@ -79,7 +69,12 @@ resource "aws_instance" "host" {
   instance_type = var.instance_type
   key_name      = local.ssh_key_name
 
-  user_data = base64encode(data.template_file.user_data.rendered)
+  // For terraform 0.12 and above, use the function templatefile instead of
+  // data.template_file.
+  user_data = base64encode(templatefile("${path.module}/${local.user_data_file}", {
+    port         = var.port
+    node_version = var.node_version
+  }))
 
   // This assumes that we are using the default VPC. If you are using a non-default
   // VPC, use `vpc_security_group_ids`.

@@ -8,7 +8,28 @@ This recipe uses the bare minimum to create an GCE instance on GCP. It uses the 
 * `zone` - The zone where the instance will be located.
 * `network_interface` - The network attached to the instance.
 
-**NOTE: This creates a resource in AWS after running `terraform apply`. Don't forget to remove the resource by running `terraform destroy` after you are done.**
+**NOTE: This creates a resource in GCP after running `terraform apply`. Don't forget to remove the resource by running `terraform destroy` after you are done.**
+
+## Setup
+
+1. If we are running this the first time, we need to enable Google Compute Engine (GCE) API so that we can interface with GCE programmatically. Just need to run this once.
+
+   ```bash
+   $ gcloud services enable compute.googleapis.com
+   ```
+
+1. Create a `terraform.tfvars` and enter the pertinent values.
+
+   ```bash
+   $ vi terraform.tfvars
+   ```
+
+1. Intialize and run Terraform.
+
+   ```bash
+   $ terraform init
+   $ terraform apply
+   ```
 
 ## Reference
 

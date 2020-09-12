@@ -89,12 +89,14 @@ All AWS terraform recipes uses the AWS profile called `cloud-recipes`. So we nee
    $ gcloud config list
    ```
    
-## Referemce
-
-* [gcloud CLI Guide](https://cloud.google.com/sdk/gcloud)  
-
 1. Update components.
 
    ```bash
    $ gcloud components update
-   ```
+   ```   
+   
+## Reference
+
+* [AWS Command Line Interface](https://aws.amazon.com/cli/)
+* [gcloud CLI Guide](https://cloud.google.com/sdk/gcloud)  
+

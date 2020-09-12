@@ -33,7 +33,7 @@ A handy reference and recipes on Terraform.
     * [Simple](aws/ec2/simple) - A simple recipe to create an EC2 instance.
     * [Production](aws/ec2/production) - A recipe to create an EC2 instance in production.
     * [Cluster](aws/ec2/cluster) - A recipe to create a cluster of multiple EC2 instances.
-    * [User-data](aws/ec2/user-data) - A recipe that uses the `template_file` module to inject configurations and then pass the user-data to configure EC2 instance during its launch.
+    * [User-data](aws/ec2/user-data) - A recipe that uses the `templatefile` function to inject a startup script to configure the EC2 instance further during its creation.
   * ECR
     * [Simple](aws/ecr/simple) - A simple recipe to create an ECR repository.
   * Security Group
@@ -44,6 +44,7 @@ A handy reference and recipes on Terraform.
 * GCP
   * GCE
     * [Simple](gcp/gce/simple) - A simple recipe to create an GCE instance.
+    * [Startup script](gcp/gce/startup-script) - A recipe that uses the `templatefile` function to inject a startup script to configure the GCE instance further during its creation.
 
 ## Reference
 

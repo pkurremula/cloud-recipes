@@ -1,6 +1,6 @@
-# User-data to Configure EC2 Host
+# User-data for EC2 Host
 
-When we launch an EC2 instance on AWS, we get to pass a shell script (user-data) to configure the EC2 host at the operating system level. This recipe leverage the Terraform `template_file` data module to inject values to the user-data file before it is passed to AWS for the creation of an EC2 instance.
+When we launch an EC2 instance on AWS, we get to pass a shell script to start a service or configure the EC2 host. This recipe leverages the Terraform `templatefile` function to inject values to the startup script before it is passed to the EC2 host during its creation.
 
 **NOTE: This creates a resource in AWS after running `terraform apply`. Don't forget to remove the resource by running `terraform destroy` after you are done.**
 
@@ -39,6 +39,28 @@ When we launch an EC2 instance on AWS, we get to pass a shell script (user-data)
 
 ## Notes
 
+### templatefile Function
+
+For Terraform 0.12 and above, use function `templatefile` instead of the module `data.template_file`. The following are equivalent:
+
+```hcl-terraform
+data "template_file" "startup_script" {
+  template = file("${path.module}/${local.startup_script_file}")
+
+  vars = {
+    port         = 8080
+    node_version = "v12.13.0"
+  }
+}
+```
+
+```hcl-terraform
+templatefile("${path.module}/${local.startup_script_file}", {
+  port         = 8080
+  node_version = "v12.13.0"
+})
+```
+
 ### Installing Node.js on Amazon Linux
 
 We are using Amazon Linux 2 for the EC2 host to be created with this recipe. To install `node.js` with the package manager `yum` that comes with operating system, we run the following:
@@ -52,10 +74,10 @@ Unfortunately the package manager installs a pretty dated version of node. So we
 
 ### User-data Execution Log
 
-It's good to examine the execution log of user-data to help troubleshot should things go wrong. We can SSH into the host and read the log file.
+It's good to examine the execution log of user-data to help troubleshot should things go wrong. We can SSH into the host and read the log file. See the [user-data script](user-data.sh).
 
 ```bash
-$ tail -f /var/log/user-data.log
+$ cat /var/log/user-data.log
 ``` 
 
 ## Credits
@@ -66,6 +88,7 @@ $ tail -f /var/log/user-data.log
 
 * [Terraform: aws_instance](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/instance)
 * [Terraform: aws_security_group](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/security_group)
+* [Terraform: templatefile](https://www.terraform.io/docs/configuration/functions/templatefile.html)
 * [NVM: Node Version Manager](https://github.com/nvm-sh/nvm)
 * [PM2](https://github.com/Unitech/pm2)
 * [AWS Instance Types](https://aws.amazon.com/ec2/instance-types)

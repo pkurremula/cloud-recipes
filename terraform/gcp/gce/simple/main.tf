@@ -10,6 +10,7 @@ provider "google" {
 
 // Select a random zone from the specified region.
 // All this work because we must specify a zone in GCE, so we randomly select a zone.
+// NOTE: We can also keep it super simple and just assign zone = "${var.region}-a".
 
 data "google_compute_zones" "available" {}
 
@@ -27,7 +28,7 @@ locals {
 
 resource "google_compute_instance" "host" {
   machine_type = var.instance_type
-  name         = "cloud-recipes-simple"
+  name         = "cloud-recipes-simple-vm"
   zone         = data.google_compute_zones.available.names[local.index]
 
   boot_disk {
@@ -38,5 +39,9 @@ resource "google_compute_instance" "host" {
 
   network_interface {
     network = "default"
+
+    access_config {
+      // Ephemeral IP
+    }
   }
 }
