@@ -5,7 +5,7 @@ terraform {
 provider "aws" {
   region  = var.region
   version = "~> 3.2.0"
-  profile = "terraform-recipes"
+  profile = "cloud-recipes"
 }
 
 resource "aws_vpc" "vpc" {

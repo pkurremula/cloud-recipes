@@ -60,7 +60,7 @@ Currently, the setup is for Mac using [Homebrew](https://brew.sh/).
 
 ### AWS Setup
 
-All AWS terraform recipes uses the AWS profile called `terraform-recipes`. So we need to create the profile in the aws profile and credentials files.
+All AWS terraform recipes uses the AWS profile called `cloud-recipes`. So we need to create the profile in the aws profile and credentials files.
 
 1. Install AWS CLI tool.
 
@@ -82,7 +82,7 @@ All AWS terraform recipes uses the AWS profile called `terraform-recipes`. So we
     aws_access_key_id=FERJHF348fFD3EXAMPLE
     aws_secret_access_key=jdeiry34824/JDSFryewd3274dsdhfEXAMPLE
     
-    [terraform-recipes]
+    [cloud-recipes]
     aws_access_key_id=AWS_FERJHF348fFD3EXAMPLE
     aws_secret_access_key=jdeiry34824/JDSFryewd3274dsdhfEXAMPLE
     
@@ -91,7 +91,7 @@ All AWS terraform recipes uses the AWS profile called `terraform-recipes`. So we
     region = us-east-1
     output = json
     
-    [profile terraform-recipes]
+    [profile cloud-recipes]
     region = us-west-2
     output = text
     ```
@@ -99,7 +99,7 @@ All AWS terraform recipes uses the AWS profile called `terraform-recipes`. So we
 1. Verify that `awscli` is working by running the following:
 
    ```bash
-   $ aws ec2 describe-instances --profile terraform-recipes
+   $ aws ec2 describe-instances --profile cloud-recipes
    ```   
 
 ### GCP Setup
