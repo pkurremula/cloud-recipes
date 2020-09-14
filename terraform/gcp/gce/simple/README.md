@@ -24,11 +24,11 @@ This recipe uses the bare minimum to create an GCE instance on GCP. It uses the 
    $ vi terraform.tfvars
    ```
 
-1. Intialize and run Terraform.
+1. Initialize and run Terraform.
 
    ```bash
    $ terraform init
-   $ terraform apply
+   $ TF_VAR_project=[GCP-project-id] terraform apply
    ```
 
 ## Reference

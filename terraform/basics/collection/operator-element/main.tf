@@ -9,7 +9,7 @@ locals {
 data "null_data_source" "element" {
   // Deliberately increase the size of count so that we have an index that
   // goes out of bound. The function element handles out-of-bound index by
-  // wrapping around
+  // wrapping around.
   count = length(local.numbers) * 2
 
   inputs = {

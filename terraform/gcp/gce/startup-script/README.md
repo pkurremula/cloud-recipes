@@ -18,14 +18,14 @@ When we launch an GCE instance on GCP, we get to pass a shell script to start a 
    $ vi terraform.tfvars
    ```
 
-1. Intialize and run Terraform.
+1. Initialize and run Terraform.
 
    ```bash
    $ terraform init
-   $ terraform apply
+   $ TF_VAR_project=[GCP-project-id] terraform apply
    ```
 
-1. Test the web server by running.
+1. Wait about a minute for the startup script to fully configure the new system before testing the web server by running.
 
    ```bash
    $ curl "http://$(terraform output public_ip):8080"

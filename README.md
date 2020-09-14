@@ -78,9 +78,10 @@ All AWS terraform recipes uses the AWS profile called `cloud-recipes`. So we nee
 1. Configure Google SDK.
 
    ```bash
+   $ gcloud auth application-default login
+   $ gcloud auth login
    $ gcloud config set project [project-id]
    $ gcloud config set compute/zone us-west1  # This optional
-   $ gcloud auth application-default login
    ```
 
 1. Print configurations.

@@ -9,6 +9,18 @@ variable "project" {
   type        = string
 }
 
+variable "name" {
+  description = "Name of the GCE instance."
+  type        = string
+  default     = "cloud-recipes-vm"
+}
+
+variable "description" {
+  description = "The description fo the GCE instance."
+  type        = string
+  default     = "Cloud recipe"
+}
+
 variable "instance_type" {
   description = "The instance type for the GCE instance."
   type        = string

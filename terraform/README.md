@@ -39,12 +39,15 @@ A handy reference and recipes on Terraform.
   * Security Group
     * [Simple](aws/security-group/simple) - A simple recipe to create a security group.  
     * [Dynamic](aws/security-group/dynamic) - A recipe that creates multiple rules in a security group using the `dynamic` block and a list.
-  * VPC
-    * [Simple](aws/vpc/simple) - A simple recipe to create a VPC.
+  * Network
+    * [Simple VPC](aws/network/simple-vpc) - A simple recipe to create a VPC.
 * GCP
   * GCE
     * [Simple](gcp/gce/simple) - A simple recipe to create an GCE instance.
     * [Startup script](gcp/gce/startup-script) - A recipe that uses the `templatefile` function to inject a startup script to configure the GCE instance further during its creation.
+  * Network
+    * [Simple VPC](gcp/network/simple-vpc) - A simple recipe to create a VPC.
+    * [Shared VPC](gcp/network/shared-vpc) - A recipe to create a shared VPC.
 
 ## Reference
 

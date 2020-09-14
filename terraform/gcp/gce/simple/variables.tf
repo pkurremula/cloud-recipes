@@ -9,6 +9,18 @@ variable "project" {
   type        = string
 }
 
+variable "name" {
+  description = "Name of the GCE instance."
+  type        = string
+  default     = "cloud-recipes-vm"
+}
+
+variable "description" {
+  description = "The description fo the GCE instance."
+  type        = string
+  default     = "Cloud recipe"
+}
+
 // See https://cloud.google.com/compute/docs/images/os-details
 variable "image_name" {
   description = "The image name for the GCE instance."
