@@ -1,0 +1,10 @@
+{
+  "config": [
+    {
+      "api_key": "ab483-fe837-33946"
+    },
+    {
+      "temp_file": "/tmp/app.lock"
+    }
+  ]
+}

@@ -26,6 +26,7 @@ A handy reference and recipes on Terraform.
     * [Conversion](basics/variables/conversion) - Examples of converting types in Terraform. 
   * Utilities
     * [Random password generator](basics/utils/password-generator) - Random password generator.
+    * [Trigger on file change](basics/utils/null_resource) - Trigger whenever a file content changes.
 * Tools
   * [Makefile](tools/makefile) - A sample Makefile for a Terraform project.    
 * AWS
