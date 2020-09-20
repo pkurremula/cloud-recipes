@@ -23,7 +23,8 @@ A handy reference and recipes on Terraform.
     * [Trim a string](basics/string/trim) - Ways to remove characters from the start/end of a string.
   * Variables
     * [Declaration](basics/variables/declaration) - Examples of how to declare variables of the most common used types in Terraform.
-    * [Conversion](basics/variables/conversion) - Examples of converting types in Terraform. 
+    * [Conversion](basics/variables/conversion) - Examples of converting types in Terraform.
+    * [Validation](basics/variables/validation) - Examples of validating the values of variables. 
   * Utilities
     * [Random password generator](basics/utils/password-generator) - Random password generator.
     * [Trigger on file change](basics/utils/null_resource) - Trigger whenever a file content changes.
@@ -43,6 +44,7 @@ A handy reference and recipes on Terraform.
   * Network
     * [Simple VPC](aws/network/simple-vpc) - A simple recipe to create a VPC.
     * [Secondary CIDR blocks](aws/network/secondary-cidr-blocks) - A recipe to extend VPC IP address range.
+    * [Public and private subnets](aws/network/public-private-subnets) - A recipe to create public/private subnets.
 * GCP
   * GCE
     * [Simple](gcp/gce/simple) - A simple recipe to create an GCE instance.
