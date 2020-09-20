@@ -19,3 +19,9 @@ variable "tags" {
   type        = map(string)
   default     = {}
 }
+
+variable "secondary_cidr_blocks" {
+  description = "List of CIDR blocks of secondary IP ranges to extend the network range."
+  type        = list(string)
+  default     = []
+}

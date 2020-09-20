@@ -42,6 +42,7 @@ A handy reference and recipes on Terraform.
     * [Dynamic](aws/security-group/dynamic) - A recipe that creates multiple rules in a security group using the `dynamic` block and a list.
   * Network
     * [Simple VPC](aws/network/simple-vpc) - A simple recipe to create a VPC.
+    * [Secondary CIDR blocks](aws/network/secondary-cidr-blocks) - A recipe to extend VPC IP address range.
 * GCP
   * GCE
     * [Simple](gcp/gce/simple) - A simple recipe to create an GCE instance.

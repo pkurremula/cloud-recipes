@@ -7,7 +7,7 @@ Terraform resource module `null_resource` can be configured to detect changes an
 There are 2 use cases that invoke the provisioner:
 
 1. Whenever the content of a file is changed.
-1. Whenever the module is created and destroy.
+1. Whenever the module is created and destroyed.
 
 ## Setup
 
