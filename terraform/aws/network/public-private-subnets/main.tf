@@ -20,7 +20,7 @@ resource "aws_vpc" "vpc" {
   tags = merge(var.tags, {
     Name      = var.name
     Terraform = true
-    Env       = "dev"
+    Env       = var.env
   })
 }
 
@@ -36,7 +36,7 @@ resource "aws_subnet" "public" {
     Name      = lookup(var.public_subnets[count.index], "name")
     VPC       = var.name
     Terraform = true
-    Env       = "dev"
+    Env       = var.env
   })
 }
 
@@ -51,6 +51,6 @@ resource "aws_subnet" "private" {
     Name      = lookup(var.private_subnets[count.index], "name")
     VPC       = var.name
     Terraform = true
-    Env       = "dev"
+    Env       = var.env
   })
 }

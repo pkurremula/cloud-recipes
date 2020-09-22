@@ -26,3 +26,9 @@ variable "instance_name" {
   default     = "tf-production-ec2"
 }
 
+variable "tags" {
+  description = "Tags associated with the EC2 instance."
+  type        = map(string)
+  default     = {}
+}
+

@@ -27,4 +27,9 @@ resource "aws_instance" "host" {
 
   count = var.instance_count
   subnet_id = element(var.subnet_ids, count.index)
+
+  tags = merge(var.tags, {
+    Name      = "${var.instance_prefix}-${count.index}"
+    Terraform = true
+  })
 }

@@ -67,7 +67,8 @@ resource "aws_instance" "host" {
   // VPC, use `vpc_security_group_ids`.
   security_groups = [aws_security_group.http.name]
 
-  tags = {
-    "Name" = var.instance_name
-  }
+  tags = merge(var.tags, {
+    Name      = var.instance_name
+    Terraform = true
+  })
 }

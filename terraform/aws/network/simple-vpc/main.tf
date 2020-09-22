@@ -19,8 +19,8 @@ resource "aws_vpc" "vpc" {
   enable_classiclink_dns_support = false
 
   tags = merge(var.tags, {
-    "Name"      = var.name
-    "Terraform" = true
-    "Env"       = "dev"
+    Name      = var.name
+    Terraform = true
+    Env       = var.env
   })
 }

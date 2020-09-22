@@ -37,3 +37,9 @@ variable "node_version" {
   type        = string
   default     = "v12.13.0"
 }
+
+variable "tags" {
+  description = "Tags associated with the EC2 instance."
+  type        = map(string)
+  default     = {}
+}

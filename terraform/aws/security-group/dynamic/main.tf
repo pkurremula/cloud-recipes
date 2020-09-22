@@ -32,7 +32,7 @@ resource "aws_security_group" "dynamic_sg" {
   name        = "dynaimc-sg"
   description = "Security group with multiple rules defined through Terraform dynamic directive."
   tags = {
-    "Terraform" = true
+    Terraform = true
   }
 
   dynamic "ingress" {

@@ -1,5 +1,6 @@
 region = "us-west-2"
 name   = "vpc-dev"
+env    = "dev"
 public_subnets = [
   {
     name          = "public-subnet-1"

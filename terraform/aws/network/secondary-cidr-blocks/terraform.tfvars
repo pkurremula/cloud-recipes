@@ -1,7 +1,9 @@
-region                = "us-west-2"
-name                  = "vpc-dev"
+region = "us-west-2"
+name   = "vpc-dev"
+env    = "dev"
+
 # Primary CIDR block covers IP addresses: 10.0.0.0 thru 10.0.255.255
-cidr                  = "10.0.0.0/16"
+cidr = "10.0.0.0/16"
 # Secondary CIDR blocks cover:
 # 10.1.0.0 thru 10.1.0.255
 # 10.2.0.0 thru 10.2.0.255

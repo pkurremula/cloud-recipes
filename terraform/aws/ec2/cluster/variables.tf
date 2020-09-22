@@ -3,6 +3,12 @@ variable "region" {
   type        = string
 }
 
+variable "instance_prefix" {
+  description = "The name prefix of the EC2 instance."
+  type        = string
+  default     = "host"
+}
+
 variable "ami_id" {
   description = "The AMI ID to use for the EC2 instance."
   type        = string
@@ -25,4 +31,10 @@ variable "subnet_ids" {
   description = "A list of subnet IDs in where the instance will launch."
   type        = list(string)
   default     = []
+}
+
+variable "tags" {
+  description = "Tags associated with the EC2 instance."
+  type        = map(string)
+  default     = {}
 }

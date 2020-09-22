@@ -8,6 +8,12 @@ variable "name" {
   type        = string
 }
 
+variable "env" {
+  description = "The environment associated with the VPC."
+  type        = string
+  default     = ""
+}
+
 variable "cidr" {
   description = "The CIDR for the VPC."
   type        = string
@@ -15,7 +21,7 @@ variable "cidr" {
 }
 
 variable "tags" {
-  description = "Tags associated with this repository."
+  description = "Tags associated with the VPC."
   type        = map(string)
   default     = {}
 }

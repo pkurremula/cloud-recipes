@@ -18,7 +18,7 @@ resource "aws_security_group" "embedded_rules_sg" {
   name        = "embedded-sg"
   description = "Security group with embedded ingresses and egresses."
   tags = {
-    "Terraform" = true
+    Terraform = true
   }
 
   ingress {
@@ -43,7 +43,7 @@ resource "aws_security_group" "associated_rules_sg" {
   name        = "associated-sg"
   description = "Security group with ingresses and egresses are defined by the aws_security_group_rule modules."
   tags = {
-    "Terraform-managed" = true
+    Terraform = true
   }
 }
 
