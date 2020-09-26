@@ -45,6 +45,7 @@ A handy reference and recipes on Terraform.
     * [Simple VPC](aws/network/simple-vpc) - A simple recipe to create a VPC.
     * [Secondary CIDR blocks](aws/network/secondary-cidr-blocks) - A recipe to extend VPC IP address range.
     * [Public and private subnets](aws/network/public-private-subnets) - A recipe to create public/private subnets.
+    * [Bastion](aws/network/bastion) - A recipe to bastion to connect to the private subnet in a VPC.
 * GCP
   * GCE
     * [Simple](gcp/gce/simple) - A simple recipe to create an GCE instance.
