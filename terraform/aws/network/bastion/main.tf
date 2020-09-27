@@ -8,6 +8,8 @@ provider "aws" {
   profile = "cloud-recipes"
 }
 
+// --- VPC ---
+
 resource "aws_vpc" "vpc" {
   cidr_block = var.cidr
 
@@ -18,11 +20,13 @@ resource "aws_vpc" "vpc" {
   enable_classiclink_dns_support = false
 
   tags = merge(var.tags, {
-    Name      = var.name
+    Name      = "${var.prefix}-vpc"
     Terraform = true
     Env       = var.env
   })
 }
+
+// --- Subnets ---
 
 resource "aws_subnet" "public" {
   count  = length(var.public_subnets)
@@ -33,8 +37,7 @@ resource "aws_subnet" "public" {
   map_public_ip_on_launch = lookup(element(var.public_subnets, count.index), "map_public_ip")
 
   tags = merge(var.tags, {
-    Name      = lookup(element(var.public_subnets, count.index), "name")
-    VPC       = var.name
+    Name      = format("%s-%s", var.prefix, lookup(element(var.public_subnets, count.index), "suffix"))
     Terraform = true
     Env       = var.env
   })
@@ -48,45 +51,32 @@ resource "aws_subnet" "private" {
   availability_zone = lookup(element(var.private_subnets, count.index), "az")
 
   tags = merge(var.tags, {
-    Name      = lookup(element(var.private_subnets, count.index), "name")
-    VPC       = var.name
+    Name      = format("%s-%s", var.prefix, lookup(element(var.private_subnets, count.index), "suffix"))
     Terraform = true
     Env       = var.env
   })
 }
 
-resource "aws_default_security_group" "default" {
-  vpc_id = aws_vpc.vpc.id
-
-  ingress {
-    from_port = 0
-    protocol = -1
-    to_port = 0
-    cidr_blocks = ["0.0.0.0/0"]
-  }
-
-  egress {
-    from_port = 0
-    protocol = -1
-    to_port = 0
-    cidr_blocks = ["0.0.0.0/0"]
-  }
-}
+// --- Gateway and NAT ---
 
 resource "aws_internet_gateway" "igw" {
   vpc_id = aws_vpc.vpc.id
 
-  tags = merge({
-    Name = var.name
-  }, var.tags)
+  tags = merge(var.tags, {
+    Name      = "${var.prefix}-igw"
+    Terraform = true
+    Env       = var.env
+  })
 }
 
 resource "aws_eip" "nat" {
   vpc = true
 
-  tags = merge({
-    Name = var.name
-  }, var.tags)
+  tags = merge(var.tags, {
+    Name      = "${var.prefix}-eip"
+    Terraform = true
+    Env       = var.env
+  })
 }
 
 resource "aws_nat_gateway" "nat" {
@@ -94,20 +84,24 @@ resource "aws_nat_gateway" "nat" {
   subnet_id     = element(aws_subnet.public.*.id, 0)
 
   tags = merge({
-    Name = format("%s-%s", var.name, lookup(element(var.public_subnets, 0), "az"))
+    Name = format("%s-%s", var.prefix, lookup(element(var.public_subnets, 0), "az"))
+    Terraform = true
+    Env       = var.env
   }, var.tags)
 
   depends_on = [aws_internet_gateway.igw]
 }
 
-// Routes
+// --- Routes ---
 
 resource "aws_route_table" "public" {
   vpc_id = aws_vpc.vpc.id
 
-  tags = merge({
-    Name = var.name
-  }, var.tags)
+  tags = merge(var.tags, {
+    Name      = "${var.prefix}-publicrt"
+    Terraform = true
+    Env       = var.env
+  })
 }
 
 resource "aws_route" "public_internet_gateway" {
@@ -118,6 +112,12 @@ resource "aws_route" "public_internet_gateway" {
 
 resource "aws_route_table" "private" {
   vpc_id = aws_vpc.vpc.id
+
+  tags = merge(var.tags, {
+    Name      = "${var.prefix}-privatert"
+    Terraform = true
+    Env       = var.env
+  })
 }
 
 // Route table association

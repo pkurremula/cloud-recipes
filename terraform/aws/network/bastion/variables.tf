@@ -3,13 +3,13 @@ variable "region" {
   type        = string
 }
 
-variable "name" {
-  description = "Name of the VPC."
+variable "prefix" {
+  description = "Name prefix for this module."
   type        = string
 }
 
 variable "env" {
-  description = "The environment associated with the VPC."
+  description = "The environment associated with this module."
   type        = string
   default     = ""
 }
@@ -29,7 +29,7 @@ variable "tags" {
 variable "public_subnets" {
   description = "List of public subnet configurations."
   type = list(object({
-    name          = string
+    suffix        = string
     az            = string
     cidr          = string
     map_public_ip = bool // Map an auto-assigned public IP address.
@@ -40,9 +40,9 @@ variable "public_subnets" {
 variable "private_subnets" {
   description = "List of private subnet configurations."
   type = list(object({
-    name = string
-    az   = string
-    cidr = string
+    suffix = string
+    az     = string
+    cidr   = string
   }))
   default = []
 }
@@ -57,4 +57,16 @@ variable "bastion_instance_type" {
   description = "The instance type for the bastion host."
   type        = string
   default     = "t3.nano"
+}
+
+variable "test_instance_type" {
+  description = "The instance type for the test host."
+  type        = string
+  default     = "t3.nano"
+}
+
+variable "bastion_port" {
+  description = "The TCP port of the bastion host."
+  type        = number
+  default     = 22
 }

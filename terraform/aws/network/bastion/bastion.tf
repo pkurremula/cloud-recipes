@@ -1,8 +1,9 @@
 locals {
-  bastion_hostname       = "bastion"
-  bastion_ssh_key_name   = "bastion_ssh"
+  bastion_hostname       = "${var.prefix}-bastion"
+  bastion_ssh_key_name   = "${var.prefix}-bastion_ssh"
   bastion_ssh_file       = "id-rsa-bastion"
   bastion_user_data_file = "user-data.sh"
+  bastion_security_group = "${var.prefix}-ssh-sg"
 }
 
 // Query the latest Amazon Linux AMI.
@@ -25,21 +26,14 @@ resource "aws_key_pair" "default" {
 
 // Security group.
 resource "aws_security_group" "ssh" {
-  name        = "ssh-sg"
+  name        = local.bastion_security_group
   description = "Allow incoming ssh traffic."
   vpc_id      = aws_vpc.vpc.id
 
   ingress {
-    from_port   = 22
-    to_port     = 22
+    from_port   = var.bastion_port
+    to_port     = var.bastion_port
     protocol    = "tcp"
-    cidr_blocks = ["0.0.0.0/0"]
-  }
-
-  ingress {
-    from_port = 0
-    protocol = "icmp"
-    to_port = 0
     cidr_blocks = ["0.0.0.0/0"]
   }
 
@@ -64,10 +58,12 @@ resource "aws_instance" "bastion" {
   vpc_security_group_ids = [aws_security_group.ssh.id]
 
   user_data = base64encode(templatefile("${path.module}/${local.bastion_user_data_file}", {
+    bastion_port = var.bastion_port
   }))
 
   tags = merge(var.tags, {
     Name      = local.bastion_hostname
     Terraform = true
+    Env       = var.env
   })
 }
