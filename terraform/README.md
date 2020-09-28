@@ -55,6 +55,7 @@ A handy reference and recipes on Terraform.
   * Network
     * [Simple VPC](gcp/network/simple-vpc) - A simple recipe to create a VPC.
     * [Shared VPC](gcp/network/shared-vpc) - A recipe to create a shared VPC.
+    * [VPC for GKE](gcp/network/gke-network) - A recipe to create a VPC for hosting GKE clusters.
 
 ## Reference
 
