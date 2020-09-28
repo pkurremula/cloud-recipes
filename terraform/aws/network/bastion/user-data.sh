@@ -2,6 +2,12 @@
 
 declare cronfile='/tmp/cron'
 
+# Log the process
+
+set -x
+exec > >(tee /var/log/user-data.log|logger -t user-data) 2>&1
+date '+%Y-%m-%d %H:%M:%S'
+
 # Keep system up to date with security patches twice daily.
 cat > "$${cronfile}" << EOF
 0 0,12 * * * yum -y update --security

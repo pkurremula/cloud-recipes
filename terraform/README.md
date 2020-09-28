@@ -28,6 +28,7 @@ A handy reference and recipes on Terraform.
   * Utilities
     * [Random password generator](basics/utils/password-generator) - Random password generator.
     * [Trigger on file change](basics/utils/null_resource) - Trigger whenever a file content changes.
+    * [Templatefile function](basics/utils/templatefile) - Examples of using the templatefile function, including a trick to differentiating a Terraform template variable from a shell variable.
 * Tools
   * [Makefile](tools/makefile) - A sample Makefile for a Terraform project.    
 * AWS
@@ -41,6 +42,7 @@ A handy reference and recipes on Terraform.
   * Security Group
     * [Simple](aws/security-group/simple) - A simple recipe to create a security group.  
     * [Dynamic](aws/security-group/dynamic) - A recipe that creates multiple rules in a security group using the `dynamic` block and a list.
+    * [ICMP](aws/security-group/icmp) - An example of a security group that allows incoming ICMP echo (ping).
   * Network
     * [Simple VPC](aws/network/simple-vpc) - A simple recipe to create a VPC.
     * [Secondary CIDR blocks](aws/network/secondary-cidr-blocks) - A recipe to extend VPC IP address range.

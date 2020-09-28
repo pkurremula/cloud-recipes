@@ -11,12 +11,6 @@ There are 2 ways to define an AWS security group:
 
 ## Setup
    
-1. Create a `terraform.tfvars` and enter the pertinent values.
-
-   ```bash
-   $ vi terraform.tfvars
-   ```   
-   
 1. Run Terraform.
 
    ```bash

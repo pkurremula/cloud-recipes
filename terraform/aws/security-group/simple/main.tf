@@ -14,7 +14,7 @@ provider "aws" {
 
 // Define a `aws_security_group` resource module and embed the ingress/regress rules within.
 
-resource "aws_security_group" "embedded_rules_sg" {
+resource "aws_security_group" "embedded" {
   name        = "embedded-sg"
   description = "Security group with embedded ingresses and egresses."
   tags = {
@@ -39,7 +39,7 @@ resource "aws_security_group" "embedded_rules_sg" {
 
 // 2. Define a `aws_security-group` resource module and associate it with multiple `aws_security_group_rule` modules.
 
-resource "aws_security_group" "associated_rules_sg" {
+resource "aws_security_group" "associated" {
   name        = "associated-sg"
   description = "Security group with ingresses and egresses are defined by the aws_security_group_rule modules."
   tags = {
@@ -54,7 +54,7 @@ resource "aws_security_group_rule" "http_ingress" {
   type        = "ingress"
   cidr_blocks = ["0.0.0.0/0"]
 
-  security_group_id = aws_security_group.associated_rules_sg.id
+  security_group_id = aws_security_group.associated.id
 }
 
 resource "aws_security_group_rule" "all_egress" {
@@ -64,5 +64,5 @@ resource "aws_security_group_rule" "all_egress" {
   type        = "egress"
   cidr_blocks = ["0.0.0.0/0"]
 
-  security_group_id = aws_security_group.associated_rules_sg.id
+  security_group_id = aws_security_group.associated.id
 }
