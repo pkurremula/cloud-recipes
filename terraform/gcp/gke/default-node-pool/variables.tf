@@ -1,6 +1,7 @@
 variable "region" {
   description = "The GCE region."
   type        = string
+  default     = "us-west1"
 }
 
 variable "project" {
@@ -19,3 +20,12 @@ variable "env" {
   default     = ""
 }
 
+variable "machine_type" {
+  description = "The machine type in this GKE cluster."
+  type        = string
+}
+
+variable "disk_size" {
+  description = "The size (GB) of the disk attached to each node."
+  type        = number
+}

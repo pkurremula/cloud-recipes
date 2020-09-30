@@ -35,7 +35,7 @@ This recipe uses the bare minimum to create an GCE instance on GCP. It uses the 
 
 * [Terraform: google_compute_image](https://www.terraform.io/docs/providers/google/r/compute_image.html)
 * [Terrafrom: google_compute_instance](https://www.terraform.io/docs/providers/google/r/compute_instance.html)
-* [GCP Instance Types](https://cloud.google.com/compute/docs/machine-types)
+* [GCP Machine Types](https://cloud.google.com/compute/docs/machine-types)
 * [GCP Pricing Calculator](https://cloud.google.com/products/calculator)
 * [GCE Images](https://cloud.google.com/compute/docs/images)
 * [GCE Image Operating System Details](https://cloud.google.com/compute/docs/images/os-details)

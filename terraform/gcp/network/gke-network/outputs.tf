@@ -1,4 +1,4 @@
-output "self_link" {
+output "vpc_self_link" {
   description = "The URI of this VPC."
   value       = google_compute_network.vpc.self_link
 }
