@@ -56,6 +56,8 @@ A handy reference and recipes on Terraform.
   * GCE
     * [Simple](gcp/gce/simple) - A simple recipe to create an GCE instance.
     * [Startup script](gcp/gce/startup-script) - A recipe that uses the `templatefile` function to inject a startup script to configure the GCE instance further during its creation.
+  * [GCR](gcp/gcr) - Push/pull Docker images to the private container repository on GCP.
+    * [GCR with Access Control](gcp/gcr/access-control) - Explicitly create a GCR and binding it with IAM members with roles for access.
   * GKE
     * [Default node pool](gcp/gke/default-node-pool) - A recipe that creates a network and GKE with 1 default node pool.    
 
