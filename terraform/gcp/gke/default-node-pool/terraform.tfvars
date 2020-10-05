@@ -1,4 +1,4 @@
-region       = "us-west2"
+region       = "us-west1"
 prefix       = "dev"
 env          = "dev"
 machine_type = "g1-small"

@@ -1,0 +1,10 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: hello-go
+spec:
+  containers:
+    - image: gcr.io/cybersamx-public/hello-go:latest
+      name: hello-go
+      ports:
+        - containerPort: 8080
