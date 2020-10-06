@@ -103,7 +103,7 @@ $ kubectl config unset contexts.my-context
 To configure kubectl to connect to a cluster, we first need to fetch the credentials and configurations of the cluster and store them in `~/.kube/config` in the client. Let's suppose we are using GCP, you can the following commands to configure kubectl to connect to GKE.
 
 ```bash
-$ gcloud container clusters create my-gke
+$ gcloud container clusters create my-gke --num-nodes 1 --region=us-west1
 $ gcloud container clusters get-credentials my-gke
 $ kubectl config get-contexts
 CURRENT NAME                           CLUSTER                        AUTHINFO                       NAMESPACE

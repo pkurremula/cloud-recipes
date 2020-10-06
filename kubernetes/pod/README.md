@@ -9,8 +9,9 @@ One of the simplest manifest file for creating a pod is [pod.yaml](pod-simple.ya
 1. Create a GKE cluster with one of the following ways: gcloud or Terraform.
 
    ```bash
-   $ gcloud config set compute/zone us-west1
-   $ gcloud container clusters create dev-gke
+   $ gcloud config set compute/region us-west1
+   $ gcloud container clusters create dev-gke --num-nodes 1 --region=us-west1
+   $ gcloud container clusters get-credentials dev-gke --region=us-west1
    ```
    
    Or use the [default-node-pool](../../terraform/gcp/gke/default-node-pool) recipe in this repo to create a GKE cluster.
@@ -47,3 +48,6 @@ One of the simplest manifest file for creating a pod is [pod.yaml](pod-simple.ya
    Server: hello-go
    ```
 
+## Reference
+
+* [Kubernetes: Pods](https://kubernetes.io/docs/concepts/workloads/pods/)

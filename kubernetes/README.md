@@ -6,6 +6,7 @@ A handy reference and recipes on Kubernetes.
 
 * Basics
   * [Pod](pod) - Create a pod in a cluster. 
+  * [Service](service) - Create a service in a cluster.
 
 ## Reference
 

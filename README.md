@@ -82,7 +82,7 @@ All AWS terraform recipes uses the AWS profile called `cloud-recipes`. So we nee
    $ gcloud auth application-default login
    $ gcloud auth login
    $ gcloud config set project [project-id]
-   $ gcloud config set compute/zone us-west1  # This optional
+   $ gcloud config set compute/region us-west1  # This optional
    ```
 
 1. Print configurations.
@@ -101,4 +101,3 @@ All AWS terraform recipes uses the AWS profile called `cloud-recipes`. So we nee
 
 * [AWS Command Line Interface](https://aws.amazon.com/cli/)
 * [gcloud CLI Guide](https://cloud.google.com/sdk/gcloud)  
-
