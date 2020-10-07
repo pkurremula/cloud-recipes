@@ -1,6 +1,6 @@
 # Service
 
-Create services of the following types:
+Create Services of the following types:
 
 * ClusterIP - Expose a pod to other resources wihin the cluster.
 * NodePort - Create a TCP port on the actual virtual machine, to which traffic from a pod will be routed. It also creates and assign a ClusterIP to the pod to so that it can be connected to the pod.
@@ -9,13 +9,13 @@ Create services of the following types:
 ## Setup
 
 1. Create a [pod](../pod).   
-1. Create a ClusterIP-based service.
+1. Create a ClusterIP-based Service.
 
    ```bash
    $ kubectl apply -f svc-clusterip.yaml
    ```
     
-1. Test the service.
+1. Test the Service.
 
    ```bash
    $ kubectl get svc hello-service
@@ -25,7 +25,7 @@ Create services of the following types:
    $ curl http://localhost:8080/api/v1/namespaces/default/services/hello-service/proxy
    ```
 
-1. Create a NodePort-based service.
+1. Create a NodePort-based Service.
 
    ```bash
    $ kubectl apply -f svc-nodeport.yaml
@@ -42,7 +42,7 @@ Create services of the following types:
    Server: hello-go
    ```
 
-1. Create a LoadBalancer-based service
+1. Create a LoadBalancer-based Service
 
    ```bash
    $ kubectl apply -f svc-loadbalancer.yaml
@@ -51,7 +51,7 @@ Create services of the following types:
    hello-svc-loadbalancer   LoadBalancer   10.115.251.73   34.83.252.220   8080:30190/TCP   54s
    ```
    
-1. Test the service.
+1. Test the Service.
 
    ```bash
    $ curl "$(kubectl get svc hello-svc-loadbalancer -o json | jq -r '.status.loadBalancer.ingress[0].ip'):8080"

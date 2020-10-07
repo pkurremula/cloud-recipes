@@ -5,8 +5,9 @@ A handy reference and recipes on Kubernetes.
 ## Recipes
 
 * Basics
-  * [Pod](pod) - Create a pod in a cluster. 
-  * [Service](service) - Create a service in a cluster.
+  * [Pod](pod) - Create a Pod. 
+  * [Service](service) - Create a Service.
+  * [Ingress](ingress) - Create an Ingress.
 
 ## Reference
 

@@ -1,8 +1,8 @@
 # Pod
 
-Create a pod.
+Create a Pod.
 
-One of the simplest manifest file for creating a pod is [pod.yaml](pod-simple.yaml). Other variants of creating the same pod but with additional configurations or add-ons can be found in [variants](variants).
+One of the simplest manifest file for creating a Pod is [pod.yaml](pod-simple.yaml). Other variants of creating the same pod but with additional configurations or add-ons can be found in [variants](variants).
 
 ## Setup
 

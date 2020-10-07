@@ -1,0 +1,9 @@
+apiVersion: "extensions/v1beta1"
+kind: "Ingress"
+metadata:
+  name: "hello-ingress"
+  namespace: "default"
+spec:
+  backend:
+    serviceName: "hello-svc-nodeport"
+    servicePort: 8080
