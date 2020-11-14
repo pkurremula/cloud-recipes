@@ -1,0 +1,12 @@
+version: '3.7'
+
+services:
+  env-go:
+    ports:
+      - "8080:8080"
+    container_name: env-go
+    build:
+      context: .
+      dockerfile: Dockerfile
+    # Tag
+    image: cybersamx/env-go

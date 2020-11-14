@@ -1,0 +1,32 @@
+kind: Deployment
+apiVersion: apps/v1
+metadata:
+  name: env-go
+  namespace: default
+  labels:
+    app: env-go
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: env-go
+  template:
+    metadata:
+      labels:
+        app: env-go
+    spec:
+      containers:
+        - name: env-go
+          image: cybersamx/env-go:latest
+          ports:
+            - containerPort: 8080
+              protocol: TCP
+          env:
+            - name: ADDRESS
+              value: ':8080'
+            - name: IS_WORKER
+              value: 'true'
+            - name: IS_MASTER
+              value: 'false'
+          imagePullPolicy: Always
+      restartPolicy: Always

@@ -18,16 +18,9 @@ Even though this guide makes opinionated assumptions about the k8s cluster being
 
 ## Setup
 
-1. Connect to GKE and set up a context.
+1. [Connect to GKE](../kubernetes/gke.md)
 
-   ```bash
-   $ gcloud auth application-default login
-   $ gcloud auth login
-   $ gcloud config set project my-gcp-project
-   $ gcloud container clusters get-credentials my-gke
-   ```
-
-   Or you if you have already set up the context, just navigate to the context.
+   Once you connect to a cluster, just navigate to the context.
    
    ```bash
    $ kubectl config set-context my-gke
