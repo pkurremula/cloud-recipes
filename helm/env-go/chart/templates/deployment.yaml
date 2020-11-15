@@ -1,0 +1,39 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: {{ include "env-go.fullname" . }}
+  namespace: {{ .Values.namespace }}
+  labels:
+    {{- include "env-go.labels" . | nindent 4 }}
+spec:
+  replicas: {{ .Values.replicaCount }}
+  selector:
+    matchLabels:
+      {{- include "env-go.selectorLabels" . | nindent 6 }}
+  template:
+    metadata:
+      labels:
+        {{- include "env-go.selectorLabels" . | nindent 8 }}
+    spec:
+      containers:
+        - name: {{ .Chart.Name }}
+          image: "{{ .Values.image.repository }}:{{ .Values.image.tag }}"
+          ports:
+            - name: http
+              containerPort: {{ .Values.service.internalPort }}
+              protocol: TCP
+          env:
+            {{ toYaml .Values.environment | nindent 12 }}
+          livenessProbe:
+            httpGet:
+              path: /env
+              port: http
+          readinessProbe:
+            httpGet:
+              path: /env
+              port: http
+          resources:
+            {{- toYaml .Values.resources | nindent 12 }}
+          imagePullPolicy: {{ .Values.image.pullPolicy }}
+      serviceAccountName: {{ include "env-go.serviceAccountName" . }}
+      restartPolicy: Always
