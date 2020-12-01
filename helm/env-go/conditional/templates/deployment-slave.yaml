@@ -26,7 +26,8 @@ spec:
               containerPort: {{ .Values.service.internalPort }}
               protocol: TCP
           env:
-            {{ toYaml .Values.slaveEnvironment | nindent 12 }}
+            {{- toYaml .Values.environment | nindent 12 }}
+            {{- toYaml .Values.workerMode.slaveEnv | nindent 12 }}
           livenessProbe:
             httpGet:
               path: /env
@@ -36,7 +37,7 @@ spec:
               path: /env
               port: http
           resources:
-            {{ toYaml .Values.resources | nindent 12 }}
+            {{- toYaml .Values.resources | nindent 12 }}
           imagePullPolicy: {{ .Values.image.pullPolicy }}
       serviceAccountName: {{ include "env-go.serviceAccountName" . }}
       restartPolicy: Always

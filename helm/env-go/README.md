@@ -47,23 +47,23 @@ Here are the steps to create a Helm chart from scratch.
 1. Do a dry-run of the installation.
 
    ```bash
-   $ helm install --dry-run --debug env-go ./basic --values ./basic/values.yaml
+   $ helm install --dry-run --debug env-go-basic ./basic --values ./basic/values.yaml
    ```
 
 1. To install the application.
 
    ```bash
-   $ helm install env-go ./basic --values ./basic/values.yaml
+   $ helm install env-go-basic ./basic --values ./basic/values.yaml
    ```
    
 1. To roll out a new version of the application.
 
    ```bash
-   $ helm upgrade env-go ./basic --values ./basic/values.yaml
+   $ helm upgrade env-go-basic ./basic --values ./basic/values.yaml
    ```   
    
 1. To uninstall the application.
 
    ```bash
-   $ helm uninstall env-go
+   $ helm uninstall env-go-basic
    ```
