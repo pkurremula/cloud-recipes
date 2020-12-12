@@ -23,7 +23,7 @@ Even though this guide makes opinionated assumptions about the k8s cluster being
    Once you connect to a cluster, just navigate to the context.
    
    ```bash
-   $ kubectl config set-context my-gke
+   $ kubectl config use-context my-gke
    ```
 
 1. Set the cluster to install Tiller.
