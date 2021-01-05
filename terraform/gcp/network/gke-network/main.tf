@@ -10,8 +10,8 @@ provider "google" {
 
 locals {
   vpc_name                      = "${var.prefix}-vpc"
-  pods_secondary_range_name     = "${var.prefix}-subnet-gke-pods"
-  services_secondary_range_name = "${var.prefix}-subnet-gke-services"
+  pods_secondary_range_name     = "${var.prefix}-sec-range-gke-pods"
+  services_secondary_range_name = "${var.prefix}-sec-range-gke-services"
 }
 
 // --- VPC ---
@@ -69,7 +69,6 @@ resource "google_compute_router" "this" {
 resource "google_compute_router_nat" "this" {
   name   = "${var.prefix}-nat"
   router = google_compute_router.this.name
-  //  nat_ips                            = [ for value in values(google_compute_address.nat_addresses): value.self_link ]
   nat_ip_allocate_option = "AUTO_ONLY"
 
   source_subnetwork_ip_ranges_to_nat = "LIST_OF_SUBNETWORKS"

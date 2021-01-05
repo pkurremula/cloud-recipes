@@ -37,10 +37,6 @@ resource "google_container_cluster" "default" {
   network    = module.network.vpc_self_link
   subnetwork = module.network.gke_subnet.self_link
 
-  depends_on = [
-    google_service_account.gke_sa
-  ]
-
   monitoring_service = "monitoring.googleapis.com/kubernetes"
   logging_service    = "logging.googleapis.com/kubernetes"
 
@@ -50,6 +46,10 @@ resource "google_container_cluster" "default" {
   node_config {
     service_account = google_service_account.gke_sa.email
   }
+
+  depends_on = [
+    google_service_account.gke_sa
+  ]
 
   lifecycle {
     ignore_changes = [
@@ -65,16 +65,16 @@ resource "google_container_node_pool" "pool" {
   initial_node_count = var.min_node_count
   location           = var.zone
 
-  autoscaling {
-    max_node_count = var.max_node_count
-    min_node_count = var.min_node_count
-  }
-
   node_config {
     preemptible     = true
     machine_type    = var.machine_type
     disk_size_gb    = var.disk_size
     service_account = google_service_account.gke_sa.email
+  }
+
+  autoscaling {
+    max_node_count = var.max_node_count
+    min_node_count = var.min_node_count
   }
 
   depends_on = [

@@ -59,7 +59,8 @@ A handy reference and recipes on Terraform.
   * [GCR](gcp/gcr) - Push/pull Docker images to the private container repository on GCP.
     * [GCR with Access Control](gcp/gcr/access-control) - Explicitly create a GCR and binding it with IAM members with roles for access.
   * GKE
-    * [Default node pool](gcp/gke/default-node-pool) - A recipe that creates a network and GKE with 1 default node pool.    
+    * [Default node pool](gcp/gke/default-node-pool) - A recipe that creates a network and GKE with 1 default node pool.
+    * [Preemptible zonal cluster](gcp/gke/preemptible-zonal-cluster) - A recipe that creates a preemptible GKE cluster in a single zone to save big $$$.    
 
 ## Reference
 
