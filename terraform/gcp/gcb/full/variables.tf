@@ -6,7 +6,7 @@ variable "region" {
 
 variable "project_number" {
   description = "The project number. This is needed for the creation of service account."
-  type = string
+  type        = string
 }
 
 variable "project" {
@@ -16,8 +16,8 @@ variable "project" {
 
 variable "config_file" {
   description = "The config file describing GCB pipeline."
-  type = string
-  default = "cloudbuild/default.yaml"
+  type        = string
+  default     = "cloudbuild/default.yaml"
 }
 
 variable "github" {

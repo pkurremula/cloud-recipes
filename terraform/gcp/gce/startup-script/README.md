@@ -2,17 +2,18 @@
 
 When we launch an GCE instance on GCP, we get to pass a shell script to start a service or configure the GCE host. This recipe leverages the Terraform `templatefile` function to inject values to the startup script before it is passed to the GCE host during its creation.
 
+This recipe produces the following resources and functions:
+
+* A GCE instance running Centos.
+* Boot the GCE instance with a startup script injected with variables from Terraform.
+* Firewall rules with ports 80 and 443 ingress and anywhere egress.
+* Random select an availability zone within the region.
+
 **NOTE: This creates a resource in GCP after running `terraform apply`. Don't forget to remove the resource by running `terraform destroy` after you are done.**
 
 ## Setup
 
-1. If we are running this the first time, we need to enable Google Compute Engine (GCE) API so that we can interface with GCE programmatically. Just need to run this once.
-
-   ```bash
-   $ gcloud services enable compute.googleapis.com
-   ```
-
-1. Create a `terraform.tfvars` and enter the pertinent values.
+1. Create the `terraform.tfvars` file and enter the pertinent values like project id. Note this file is not checked into the repo, so you can enter your project id and project number in the file.
 
    ```bash
    $ vi terraform.tfvars
@@ -22,7 +23,7 @@ When we launch an GCE instance on GCP, we get to pass a shell script to start a 
 
    ```bash
    $ terraform init
-   $ TF_VAR_project=[GCP-project-id] terraform apply
+   $ terraform apply
    ```
 
 1. Wait about a minute for the startup script to fully configure the new system before testing the web server by running.

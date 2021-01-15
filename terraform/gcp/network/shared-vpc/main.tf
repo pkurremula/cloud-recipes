@@ -15,7 +15,7 @@ resource "google_compute_network" "vpc" {
   description = var.description
 
   auto_create_subnetworks = var.auto_create_subnetworks
-  routing_mode = var.routing_mode
+  routing_mode            = var.routing_mode
 }
 
 resource "google_compute_shared_vpc_host_project" "shared_vpc" {

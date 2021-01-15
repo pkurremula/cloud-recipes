@@ -11,7 +11,7 @@ provider "google" {
 // --- API ---
 
 // Enabling the Cloud Build API also creates the default service account.
-resource "google_project_service" "enabled_apis" {
+resource "google_project_service" "enabled_api" {
   project = var.project
   service = "compute.googleapis.com"
 
@@ -26,7 +26,7 @@ resource "google_project_service" "enabled_apis" {
 resource "google_compute_instance" "host" {
   name         = var.vm.name
   description  = var.vm.description
-  machine_type = var.vm.instance_type
+  machine_type = var.vm.machine_type
   zone         = "${var.region}-a"
 
   boot_disk {

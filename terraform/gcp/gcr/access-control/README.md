@@ -1,8 +1,12 @@
 # GCR with Access Control
 
-A simple recipe for creating a Google Container Register (GCR) for storing Docker images.
+A simple recipe for granting a service read access to a Google Container Register (GCR).
 
-First read this [document](../README.md) on how you can implicitly create GCR by pushing an image there.
+We really don't need Terraform to create GCR as GCR is implicitly created by pushing an image to the repository. Read this [document](../README.md) for details. However, we do need to tweak the access control and a common use case is when you need to pull an image from GCR for deployment.
+
+This recipe produces the following resources and functions:
+
+* Grant a service account in GKE read access to GCR for pulling images for deployment in a GKE cluster.
 
 **NOTE: This creates a resource in AWS after running `terraform apply`. Don't forget to remove the resource by running `terraform destroy` after you are done.**
 
@@ -12,7 +16,7 @@ First read this [document](../README.md) on how you can implicitly create GCR by
 
    ```bash
    $ terraform init
-   $ TF_VAR_project=[GCP-project-id] terraform apply
+   $ terraform apply
    ```
 
 Read [here for instructions to push Docker images to GCR](../README.md).

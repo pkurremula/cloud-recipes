@@ -4,19 +4,27 @@ In GCP, you get one GKE zonal cluster for free. Otherwise, for each additional G
 
 This recipe crates a GKE zonal cluster with n number of preemptible nodes to save money.
 
+This recipe produces the following resources and functions:
+
+* A custom network configured for GKE usage created by a [separate Terraform module](../../network/gke-network).
+* A zonal GKE cluster (1 zone to get the free tier).
+* Enable monitoring and logging for the GKE cluster.
+* A custom GKE service account.
+* Custom node pool with the following settings:
+  * Autoscaling (at the node pool level).
+  * Use preemptible nodes.
+
 **NOTE: This creates a resource in GCP after running `terraform apply`. Don't forget to remove the resource by running `terraform destroy` after you are done.**
+
+## Notes
+
+### Location
+
+To designate a GKE cluster as zonal, assign a zone to the `location` property of the `google_container_cluster` module. For GKE regional cluster, assign a region.
 
 ## Setup
 
-1. Create a network for the cluster.
-
-   ```bash
-   $ cd ../../network/gke-network
-   $ terraform init
-   $ TF_VAR_project=[GCP-project-id] terraform apply
-   ```
-
-1. Create a `terraform.tfvars` and enter the pertinent values.
+1. Create a `terraform.tfvars` and enter the pertinent values, including project id.
 
    ```bash
    $ vi terraform.tfvars
@@ -26,14 +34,8 @@ This recipe crates a GKE zonal cluster with n number of preemptible nodes to sav
 
    ```bash
    $ terraform init
-   $ TF_VAR_project=[GCP-project-id] terraform apply
+   $ terraform apply
    ```
-
-## Notes
-
-### Location
-
-To designate a GKE cluster as zonal, assign a zone to the `location` property of the `google_container_cluster` module. For GKE regional cluster, assign a region.
 
 ## Reference
 

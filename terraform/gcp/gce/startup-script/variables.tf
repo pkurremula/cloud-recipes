@@ -9,32 +9,13 @@ variable "project" {
   type        = string
 }
 
-variable "name" {
-  description = "Name of the GCE instance."
-  type        = string
-  default     = "cloud-recipes-vm"
-}
-
-variable "description" {
-  description = "The description fo the GCE instance."
-  type        = string
-  default     = "Cloud recipe"
-}
-
-variable "instance_type" {
-  description = "The instance type for the GCE instance."
-  type        = string
-  default     = "e2-micro"
-}
-
-variable "port" {
-  description = "The TCP port of the application server."
-  type        = number
-  default     = 8080
-}
-
-variable "node_version" {
-  description = "The version of node.js to instll."
-  type        = string
-  default     = "v12.13.0"
+variable vm {
+  type = map
+  default = {
+    name         = "cloud-recipes-vm"
+    description  = "Cloud recipe: GCE instance with startup script."
+    machine_type = "e2-micro"
+    port         = 8080
+    node_version = "v12.13.0"
+  }
 }

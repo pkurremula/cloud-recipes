@@ -1,6 +1,7 @@
 variable "region" {
   description = "The GCE region."
   type        = string
+  default     = "us-west1"
 }
 
 variable "project" {
@@ -11,11 +12,12 @@ variable "project" {
 variable "prefix" {
   description = "Name prefix for this module."
   type        = string
+  default     = "dev"
 }
 
 variable "env" {
   description = "The environment associated with this module."
   type        = string
-  default     = ""
+  default     = "dev"
 }
 

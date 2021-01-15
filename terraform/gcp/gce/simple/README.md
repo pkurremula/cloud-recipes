@@ -8,6 +8,10 @@ This recipe uses the bare minimum to create an GCE instance on GCP. It uses the 
 * `zone` - The zone where the instance will be located.
 * `network_interface` - The network attached to the instance.
 
+This recipe produces the following resources and functions:
+
+* A GCE instance.
+
 **NOTE: This creates a resource in GCP after running `terraform apply`. Don't forget to remove the resource by running `terraform destroy` after you are done.**
 
 ## Setup

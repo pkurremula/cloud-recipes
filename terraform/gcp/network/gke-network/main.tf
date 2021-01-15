@@ -67,8 +67,8 @@ resource "google_compute_router" "this" {
 }
 
 resource "google_compute_router_nat" "this" {
-  name   = "${var.prefix}-nat"
-  router = google_compute_router.this.name
+  name                   = "${var.prefix}-nat"
+  router                 = google_compute_router.this.name
   nat_ip_allocate_option = "AUTO_ONLY"
 
   source_subnetwork_ip_ranges_to_nat = "LIST_OF_SUBNETWORKS"

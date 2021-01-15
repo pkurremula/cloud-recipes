@@ -22,9 +22,9 @@ variable "description" {
 }
 
 variable "routing_mode" {
-  default     = "GLOBAL"
   type        = string
   description = "The routing mode for the VPC."
+  default     = "GLOBAL"
 }
 
 variable "auto_create_subnetworks" {

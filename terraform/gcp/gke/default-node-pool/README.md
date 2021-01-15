@@ -2,13 +2,23 @@
 
 Node pool is a critical part of a GKE cluster. We can create 1 to many node pools with the Terraform module `google_container_node_pool` and then associate them to the `google_container_cluster` resource or just define 1 (default) node pool within the `google_container_cluster` resource.
 
-This recipe shows the creation using the default node pool.   
+This recipe produces the following resources and functions:
+
+* A custom network configured for GKE usage created by a [separate Terraform module](../../network/gke-network).
+* Regional GKE cluster.
+* Use the default node pool.
 
 **NOTE: This creates a resource in GCP after running `terraform apply`. Don't forget to remove the resource by running `terraform destroy` after you are done.**
 
+## Notes
+
+### Initial Node Count
+
+There are 2 types of GKE cluster: zonal and regional. The initial number of nodes is based on the `initial_node_count` attribute defined in the module. An `initial_node_count` of 1 creates 1 node per zone. A regional GKE cluster typically has 3 zones. So with a regional GKE cluster with `initial_node_count` of 1, the module will create a total of 3 nodes. 
+
 ## Setup
 
-1. Create a `terraform.tfvars` and enter the pertinent values.
+1. Create a `terraform.tfvars` and enter the pertinent values like project id.
 
    ```bash
    $ vi terraform.tfvars
@@ -18,14 +28,8 @@ This recipe shows the creation using the default node pool.
 
    ```bash
    $ terraform init
-   $ TF_VAR_project=[GCP-project-id] terraform apply
+   $ terraform apply
    ```
-
-## Notes
-
-### Initial Node Count
-
-There are 2 types of GKE cluster: zonal and regional. The initial number of nodes is based on the `initial_node_count` attribute defined in the module. An `initial_node_count` of 1 creates 1 node per zone. A regional GKE cluster typically has 3 zones. So with a regional GKE cluster with `initial_node_count` of 1, the module will create a total of 3 nodes. 
 
 ## Reference
 

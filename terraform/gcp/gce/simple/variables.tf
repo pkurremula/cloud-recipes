@@ -12,9 +12,9 @@ variable "project" {
 variable vm {
   type = map
   default = {
-    name = "cloud-recipes-vm"
-    description = "Cloud recipe: simple GCE instance."
-    image_name = "debian-cloud/debian-9"  // See https://cloud.google.com/compute/docs/images/os-details
-    instance_type = "e2-micro"
+    name         = "cloud-recipes-vm"
+    description  = "Cloud recipe: simple GCE instance."
+    image_name   = "debian-cloud/debian-9" // See https://cloud.google.com/compute/docs/images/os-details
+    machine_type = "e2-micro"
   }
 }

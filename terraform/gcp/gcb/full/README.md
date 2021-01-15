@@ -1,9 +1,11 @@
 # Full Google Cloud Build
 
-This recipe creates a full Cloud Build (GCB) with the following:
+This recipe creates a full Cloud Build (GCB) Trigger that is triggered by a push to a branch on a Github repo.
+
+This recipe produces the following resources and functions:
 
 * Service accounts associated with GCB with permissions to run GCB pipelines, access to GCS and GCR, and deployment to GKE/GCE.
-* GCB Trigger
+* GCB Trigger.
 
 **NOTE: This creates a resource in GCP after running `terraform apply`. Don't forget to remove the resource by running `terraform destroy` after you are done.**
 

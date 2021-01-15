@@ -13,6 +13,21 @@ locals {
   vm_firewall_tag     = "http"
 }
 
+// --- API ---
+
+// Enabling the Cloud Build API also creates the default service account.
+resource "google_project_service" "enabled_api" {
+  project = var.project
+  service = "compute.googleapis.com"
+
+  // For production system, consider assigned the below 2 properties to false.
+  // Given the ephemeral nature of a recipe, we are assigning true here.
+  disable_dependent_services = true
+  disable_on_destroy         = true
+}
+
+// --- GCE ---
+
 // Image
 
 data "google_compute_image" "os" {
@@ -32,7 +47,7 @@ resource "google_compute_firewall" "http" {
 
   allow {
     protocol = "tcp"
-    ports    = ["80", "443", var.port]
+    ports    = ["80", "443", var.vm.port]
   }
 
   allow {
@@ -64,9 +79,9 @@ locals {
 // Create a GCE instance.
 
 resource "google_compute_instance" "host" {
-  name         = var.name
-  description  = var.description
-  machine_type = var.instance_type
+  name         = var.vm.name
+  description  = var.vm.description
+  machine_type = var.vm.machine_type
   // Use function element handles out-of-bound index by wrapping around.
   zone = element(data.google_compute_zones.available.names, local.index)
 
@@ -88,8 +103,8 @@ resource "google_compute_instance" "host" {
   // For terraform 0.12 and above, use the function templatefile instead of
   // data.template_file.
   metadata_startup_script = templatefile("${path.module}/${local.startup_script_file}", {
-    port         = var.port
-    node_version = var.node_version
+    port         = var.vm.port
+    node_version = var.vm.node_version
   })
 
   // Although not necessary, we use tags to associate the firewall rules to a vm instance.
