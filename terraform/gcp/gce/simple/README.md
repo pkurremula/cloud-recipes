@@ -12,23 +12,16 @@ This recipe uses the bare minimum to create an GCE instance on GCP. It uses the 
 
 ## Setup
 
-1. If we are running this the first time, we need to enable Google Compute Engine (GCE) API so that we can interface with GCE programmatically. Just need to run this once.
-
-   ```bash
-   $ gcloud services enable compute.googleapis.com
-   ```
-
-1. Create a `terraform.tfvars` and enter the pertinent values.
+1. Create the `terraform.tfvars` file and enter the pertinent values like project id. Note this file is not checked into the repo, so you can enter your project id and project number in the file.
 
    ```bash
    $ vi terraform.tfvars
    ```
-
 1. Initialize and run Terraform.
 
    ```bash
    $ terraform init
-   $ TF_VAR_project=[GCP-project-id] terraform apply
+   $ terraform apply
    ```
 
 ## Reference
