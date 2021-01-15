@@ -21,6 +21,7 @@ variable "config_file" {
 }
 
 variable "github" {
+  description = "Configurations for Github repository."
   type = map
   default = {
     owner  = "cybersamx"

@@ -35,7 +35,7 @@ resource "aws_key_pair" "default" {
 resource "aws_security_group" "http" {
   name        = "all-sg"
   description = "Allow all traffic"
-  vpc_id      = var.vpc_id
+  vpc_id      = var.security_group.vpc_id
 
   // NOTE: Just keeping the recipe easy to follow by allow all incoming
   //       traffic. But this is not truly production ready.
@@ -58,17 +58,17 @@ resource "aws_security_group" "http" {
 resource "aws_instance" "host" {
   // Use the specified AMI if it's passed as a variable, otherwise use the latest
   // Amazon Linux AMI for the region.
-  ami = var.ami_id == "" ? data.aws_ami.amazon_linux.id : var.ami_id
+  ami = var.vm.ami_id == "" ? data.aws_ami.amazon_linux.id : var.vm.ami_id
 
-  instance_type = var.instance_type
+  instance_type = var.vm.instance_type
   key_name      = local.ssh_key_name
 
   // This assumes that we are using the default VPC. If you are using a non-default
   // VPC, use `vpc_security_group_ids`.
   security_groups = [aws_security_group.http.name]
 
-  tags = merge(var.tags, {
-    Name      = var.instance_name
+  tags = merge(var.vm.tags, {
+    Name      = var.vm.instance_name
     Terraform = true
   })
 }

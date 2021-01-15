@@ -3,19 +3,14 @@ variable "region" {
   type        = string
 }
 
-variable "repo_name" {
-  description = "Name of the repository."
-  type        = string
-}
-
-variable "scan_on_push" {
-  description = "Whether Docker images are scanned after they are pushed ot the repository."
-  type        = bool
-  default     = true
-}
-
-variable "tags" {
-  description = "Tags associated with this repository."
-  type        = map(string)
-  default     = {}
+variable "ecr" {
+  description = "Configurations for the ECR."
+  type = map
+  default = {
+    repo_name    = ""
+    scan_on_push = true
+    tags = {
+      repo = "https://github.com/cybersamx/cloud-recipes"
+    }
+  }
 }

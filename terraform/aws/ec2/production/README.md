@@ -4,6 +4,12 @@ The previous recipe [simple EC2](../simple) is a good recipe to get one familiar
 
 However, you want to be able to pass additional parameters to configure the EC2 instance for production use. In this recipe we will refine what we have built in the simple EC2 recipe with additional configurations.
 
+This recipe produces the following resources and functions:
+
+* An EC2 instance with more customizable configurations/options so that we can provision the resource better for production use.
+* A ssh key assigned to the instance.
+* Security groups associated with the instance.
+
 **NOTE: This creates a resource in AWS after running `terraform apply`. Don't forget to remove the resource by running `terraform destroy` after you are done.**
 
 ## Setup

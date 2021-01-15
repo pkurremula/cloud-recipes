@@ -2,6 +2,10 @@
 
 This recipe creates multiple rules in a security group using the `dynamic` block and a list.
 
+This recipe produces the following resources and functions:
+
+* An egress and an ingress security groups.
+
 **NOTE: This creates a resource in AWS after running `terraform apply`. Don't forget to remove the resource by running `terraform destroy` after you are done.**
 
 ## Setup

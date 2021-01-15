@@ -35,5 +35,5 @@ output "tags" {
 
 output "public_dns" {
   description = "The public dns name assigned to the EC2 instance."
-  value = aws_instance.host.public_dns
+  value       = aws_instance.host.public_dns
 }

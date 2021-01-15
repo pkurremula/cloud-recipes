@@ -2,6 +2,13 @@
 
 When we launch an EC2 instance on AWS, we get to pass a shell script to start a service or configure the EC2 host. This recipe leverages the Terraform `templatefile` function to inject values to the startup script before it is passed to the EC2 host during its creation.
 
+This recipe produces the following resources and functions:
+
+* A EC2 instance running Amazon Linux.
+* Boot the GCE instance with a user-data (startup) script injected with variables from Terraform.
+* A ssh key assigned to the instance.
+* Security groups associated with the instance.
+
 **NOTE: This creates a resource in AWS after running `terraform apply`. Don't forget to remove the resource by running `terraform destroy` after you are done.**
 
 ## Setup

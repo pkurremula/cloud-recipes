@@ -2,6 +2,10 @@
 
 A recipe for creating a VPC with specified secondary CIDR blocks, which are useful for extending the number of IP addresses in a VPC.
 
+This recipe produces the following resources and functions:
+
+* A custom VPC with secondary cidr blocks.
+
 **NOTE: This creates a resource in AWS after running `terraform apply`. Don't forget to remove the resource by running `terraform destroy` after you are done.**
 
 ## Setup

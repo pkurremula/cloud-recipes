@@ -10,7 +10,7 @@ variable "project" {
 }
 
 variable "gke" {
-  description = "GKE configuration."
+  description = "Configurations for the GKE cluster."
   type        = map
   default = {
     prefix       = "dev"

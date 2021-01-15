@@ -2,6 +2,12 @@
 
 A recipe for creating private and public subnets in a VPC.
 
+This recipe produces the following resources and functions:
+
+* A custom VPC with the following:
+  * A private subnet.
+  * A public subnet.
+
 **NOTE: This creates a resource in AWS after running `terraform apply`. Don't forget to remove the resource by running `terraform destroy` after you are done.**
 
 ## Setup

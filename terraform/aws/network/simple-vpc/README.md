@@ -2,6 +2,10 @@
 
 A simple recipe for creating a VPC in AWS.
 
+This recipe produces the following resources and functions:
+
+* A custom VPC with default configurations.
+
 **NOTE: This creates a resource in AWS after running `terraform apply`. Don't forget to remove the resource by running `terraform destroy` after you are done.**
 
 ## Setup

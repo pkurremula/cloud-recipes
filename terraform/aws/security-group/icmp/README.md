@@ -2,6 +2,10 @@
 
 Sometimes you need to have this security group to allow incoming ICMP (ping) for testing. This example shows the settings.
 
+This recipe produces the following resources and functions:
+
+* A ICMP security group.
+
 **NOTE: This creates a resource in AWS after running `terraform apply`. Don't forget to remove the resource by running `terraform destroy` after you are done.**
 
 ## Setup

@@ -1,34 +1,28 @@
 variable "region" {
   description = "The AWS region."
   type        = string
+  default     = "us-west-2"
 }
 
-variable "vpc_id" {
-  description = "The VPC ID."
-  type        = string
+variable "security_group" {
+  description = "Configurations for the security groups."
+  type = map
+  default = {
+    vpc_id = ""
+  }
 }
 
-variable "ami_id" {
-  description = "The AMI ID to use for the EC2 instance."
-  type        = string
-  default     = ""
+variable "vm" {
+  description = "Configuration for the VM instance."
+  type = map
+  default = {
+    // If ami_id == "" then we determine and use the latest Amazon Linux image.
+    // Assign an image id to override the default image.
+    ami_id        = ""
+    instance_type = "t3.nano"
+    instance_name = "production-ec2"
+    tags = {
+      repo = "https://github.com/cybersamx/cloud-recipes"
+    }
+  }
 }
-
-variable "instance_type" {
-  description = "The instance type for the EC2 instance."
-  type        = string
-  default     = "t3.nano"
-}
-
-variable "instance_name" {
-  description = "The name of the EC2 instance."
-  type        = string
-  default     = "tf-production-ec2"
-}
-
-variable "tags" {
-  description = "Tags associated with the EC2 instance."
-  type        = map(string)
-  default     = {}
-}
-

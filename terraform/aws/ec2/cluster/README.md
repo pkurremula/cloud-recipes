@@ -2,6 +2,10 @@
 
 This recipe creates a cluster of multiple EC2 instances as specified by the variable `instance_count`.
 
+This recipe produces the following resources and functions:
+
+* Multiple EC2 instances.
+
 **NOTE: This creates a resource in AWS after running `terraform apply`. Don't forget to remove the resource by running `terraform destroy` after you are done.**
 
 ## Setup

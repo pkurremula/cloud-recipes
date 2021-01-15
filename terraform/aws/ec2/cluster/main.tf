@@ -22,14 +22,14 @@ data "aws_ami" "amazon_linux" {
 
 // EC2 host.
 resource "aws_instance" "host" {
-  ami           = var.ami_id == "" ? data.aws_ami.amazon_linux.id : var.ami_id
-  instance_type = var.instance_type
+  ami           = var.vm.ami_id == "" ? data.aws_ami.amazon_linux.id : var.vm.ami_id
+  instance_type = var.vm.instance_type
 
-  count = var.instance_count
-  subnet_id = element(var.subnet_ids, count.index)
+  count     = var.vm.instance_count
+  subnet_id = element(var.vm.subnet_ids, count.index)
 
-  tags = merge(var.tags, {
-    Name      = "${var.instance_prefix}-${count.index}"
+  tags = merge(var.vm.tags, {
+    Name      = "${var.vm.instance_prefix}-${count.index}"
     Terraform = true
   })
 }

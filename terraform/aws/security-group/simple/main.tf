@@ -36,7 +36,6 @@ resource "aws_security_group" "embedded" {
   }
 }
 
-
 // 2. Define a `aws_security-group` resource module and associate it with multiple `aws_security_group_rule` modules.
 
 resource "aws_security_group" "associated" {

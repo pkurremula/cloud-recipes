@@ -9,10 +9,12 @@ provider "aws" {
 }
 
 resource "aws_ecr_repository" "repo" {
-  name = var.repo_name
+  name = var.ecr.repo_name
 
   image_scanning_configuration {
-    scan_on_push = false
+    scan_on_push = var.ecr.scan_on_push
   }
+
+  tags = var.ecr.tags
 }
 

@@ -10,7 +10,8 @@ variable "project" {
 }
 
 variable vm {
-  type = map
+  description = "Configurations for the VM instance."
+  type        = map
   default = {
     name         = "cloud-recipes-vm"
     description  = "Cloud recipe: GCE instance with startup script."

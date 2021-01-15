@@ -14,8 +14,8 @@ module "network" {
 
   project = var.project
   region  = var.region
-  prefix  = var.prefix
-  env     = var.env
+  prefix  = var.gke.prefix
+  env     = var.gke.env
 }
 
 // We need to enable service:container.googleapis.com to generate a service account needed
@@ -30,9 +30,9 @@ resource "google_project_service" "container_api" {
 
 resource "google_container_cluster" "default" {
   # For zonal cluster assign a zone to the location.
-  name     = "${var.prefix}-gke"
+  name     = "${var.gke.prefix}-gke"
   project  = var.project
-  location = var.zone
+  location = var.gke.zone
 
   network    = module.network.vpc_self_link
   subnetwork = module.network.gke_subnet.self_link
@@ -60,21 +60,21 @@ resource "google_container_cluster" "default" {
 
 resource "google_container_node_pool" "pool" {
   project            = var.project
-  name               = "${var.prefix}-pool"
+  name               = "${var.gke.prefix}-pool"
   cluster            = google_container_cluster.default.name
-  initial_node_count = var.min_node_count
-  location           = var.zone
+  initial_node_count = var.gke.min_node_count
+  location           = var.gke.zone
 
   node_config {
     preemptible     = true
-    machine_type    = var.machine_type
-    disk_size_gb    = var.disk_size
+    machine_type    = var.gke.machine_type
+    disk_size_gb    = var.gke.disk_size
     service_account = google_service_account.gke_sa.email
   }
 
   autoscaling {
-    max_node_count = var.max_node_count
-    min_node_count = var.min_node_count
+    max_node_count = var.gke.max_node_count
+    min_node_count = var.gke.min_node_count
   }
 
   depends_on = [

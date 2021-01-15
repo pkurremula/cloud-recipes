@@ -4,6 +4,16 @@ In [private and public subnets recipe](../public-private-subnets), we create a V
 
 This recipe extends the private and public subnets recipe by setting up a bastion host in the public subnet to provide a way to connect to the hosts in the private subnet. It also set up the Internet gateway and route table.
 
+This recipe produces the following resources and functions:
+
+* A custom VPC with the following resources and configuration:
+  * A private subnet.
+  * A public subnet.
+  * An Internet gateway.
+  * NAT and proper routing to the subnets.
+* An EC2 instance as bastion host.
+* Proper security grouops.
+
 **NOTE: This creates a resource in AWS after running `terraform apply`. Don't forget to remove the resource by running `terraform destroy` after you are done.**
 
 ## Setup

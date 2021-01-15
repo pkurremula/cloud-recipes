@@ -2,6 +2,10 @@
 
 A simple recipe for creating an ECR repository.
 
+This recipe produces the following resources and functions:
+
+* An ECR repository.
+
 **NOTE: This creates a resource in AWS after running `terraform apply`. Don't forget to remove the resource by running `terraform destroy` after you are done.**
 
 ## Setup

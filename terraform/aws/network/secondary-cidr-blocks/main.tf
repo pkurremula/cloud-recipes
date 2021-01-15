@@ -25,7 +25,7 @@ resource "aws_vpc" "vpc" {
 }
 
 resource "aws_vpc_ipv4_cidr_block_association" "secondary" {
-  count = length(var.secondary_cidr_blocks)
-  vpc_id = aws_vpc.vpc.id
+  count      = length(var.secondary_cidr_blocks)
+  vpc_id     = aws_vpc.vpc.id
   cidr_block = element(var.secondary_cidr_blocks, count.index)
 }
