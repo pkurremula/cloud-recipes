@@ -1,6 +1,6 @@
 # A Collection of Cloud Recipes
 
-Here is a collection of recipes for Docker, Terraform, and Kubernetes for creating and scheduling resources in the Cloud.
+Here is a collection of recipes and guides for Docker, Terraform, and Kubernetes for creating and scheduling resources in the Cloud.
 
 * [Cloud provider tools](cloud-providers)
 * [Docker recipes](docker)

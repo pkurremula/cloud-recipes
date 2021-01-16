@@ -2,6 +2,8 @@
 
 This is a recipe that shows how environment variables are injected to the container.
 
+**Change the image prefix to a different location where you have write access (ie. something different from cybersamx)**.
+
 ## Setup
 
 ### Local Build and Run

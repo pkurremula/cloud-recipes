@@ -1,5 +1,9 @@
 # Cloud Providers
 
-The tools provided by Cloud Provider.
+A handy reference and recipes on the Cloud providers and their tools.
 
-* [Cheat sheet: gcloud](gcloud-cheat-sheet.md)
+## Guides and Docs
+
+* Google Cloud
+  * [Cheat sheet: gcloud](gcloud-cheat-sheet.md)
+  * [Connect to GKE](connect-gke.md)

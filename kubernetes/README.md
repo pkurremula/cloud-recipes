@@ -1,6 +1,10 @@
-# A Collection of Kubernetes Recipes
+# Kubernetes
 
 A handy reference and recipes on Kubernetes.
+
+## Guides and Docs
+
+* [Kubernetes](docs/notes.md) - Notes on Kubernetes.
 
 ## Recipes
 

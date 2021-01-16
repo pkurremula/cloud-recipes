@@ -1,4 +1,4 @@
-# A Collection of Terraform Recipes
+# Terraform
 
 A handy reference and recipes on Terraform.
 
