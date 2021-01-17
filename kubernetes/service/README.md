@@ -9,9 +9,29 @@ Create Services of the following types:
 
 ## Setup
 
+## Create a Service Using Kubectl Expose
+
+We can run everything using kubectl.
+
+```bash
+$ kubectl run hello-go --image=cybersamx/hello-go
+$ kubectl expose pod/hello-go --port=8080 --type=LoadBalancer
+$ kubectl get all
+NAME           READY   STATUS    RESTARTS   AGE
+pod/hello-go   1/1     Running   0          2m10s
+
+NAME                         TYPE           CLUSTER-IP      EXTERNAL-IP   PORT(S)          AGE
+service/hello-go             LoadBalancer   10.105.24.91    localhost     8080:31400/TCP   11s
+$ curl http://localhost:8080
+Hello, World!
+Server: hello-go
+```
+
+## Create a Service Using Manifest Files
+
 1. Create the `hello-go` pod from [here](../pod).
 
-## ClusterIP Service
+### ClusterIP Service
  
 1. Create a ClusterIP Service.
 
@@ -29,7 +49,7 @@ Create Services of the following types:
    $ curl http://localhost:8080/api/v1/namespaces/default/services/hello-service/proxy
    ```
 
-## NodePort Service
+### NodePort Service
 
 1. Create a NodePort service.
 
@@ -43,12 +63,12 @@ Create Services of the following types:
    $ gcloud compute ssh $(kubectl get pod hello-go -o json | jq -r '.spec.nodeName')
    vm > netstat -nap | grep 30000
    tcp6       0      0 :::30000                :::*                    LISTEN      -
-   curl localhost:3000
+   curl localhost:30000
    Hello, World!
    Server: hello-go
    ```
 
-## LoadBalancer Service
+### LoadBalancer Service
 
 1. Create a LoadBalancer service
 
@@ -65,7 +85,7 @@ Create Services of the following types:
    $ curl "$(kubectl get svc hello-svc-loadbalancer -o json | jq -r '.status.loadBalancer.ingress[0].ip'):8080"
    ```
 
-## Headless Service
+### Headless Service
 
 Headless service is a special ClusterIP service.
 

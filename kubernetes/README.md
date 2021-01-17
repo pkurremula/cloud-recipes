@@ -6,13 +6,16 @@ A handy reference and recipes on Kubernetes.
 
 * [Kubernetes](docs/notes.md) - Notes on Kubernetes.
 * [Connecting to GKE](docs/gke.md) - Connect to GKE.
+* [List of Kubernetes Object Shorthands](docs/short-hands.md) - Shorthands of commonly used Kubernetes objects.
 
 ## Recipes
 
 * Basics
-  * [Pod](pod) - Create a Pod. 
-  * [Service](service) - Create a Service.
-  * [Ingress](ingress) - Create an Ingress.
+  * [Pod](pod)
+  * [Service](service)
+  * [Ingress](ingress)
+* Workload
+  * [Deployment](deployment)
 
 ## Reference
 

@@ -1,8 +1,22 @@
 # Pod
 
-One of the simplest manifest file for creating a Pod is [pod.yaml](pod-simple.yaml). Other variants for creating the same pod but with additional configurations can be found in [variants](variants).
+One of the simplest manifest file for creating a Pod is [pod.yaml](pod-simple.yaml).
+
+> **Notes**
+>
+> For production workload, it's recommended that we don't create a Pod object for deployment. Instead, deploy an application using the Deployment object as it is designed to running pods under proper supervision.
 
 ## Setup
+
+### Deploy with Kubectl Run
+
+If it's a simple deployment, we can always deploy an image by running:
+
+```bash
+$ kubectl run hello-go --image=cybersamx/hello-go
+```
+
+### Deploy with a Manifest File
 
 1. Connect to a cluster and switch to the Kubernetes context.
 
@@ -13,7 +27,7 @@ One of the simplest manifest file for creating a Pod is [pod.yaml](pod-simple.ya
 1. Create the pod.
 
    ```bash
-   $ kubectl apply -f pod.yaml
+   $ kubectl apply -f pod-simple.yaml
    $ kubectl get pods                        
    NAME       READY   STATUS    RESTARTS   AGE
    hello-go   1/1     Running   0          11s

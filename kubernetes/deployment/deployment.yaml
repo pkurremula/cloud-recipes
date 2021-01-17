@@ -1,0 +1,48 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: hello-go
+  labels:
+    app/instance: hello
+    app/name: hello
+    app/env: dev
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app/instance: hello
+      app/name: hello
+      app/env: dev
+  template:
+    metadata:
+      labels:
+        app/instance: hello
+        app/name: hello
+        app/env: dev
+    spec:
+      containers:
+        - name: hello-go
+          image: cybersamx/hello-go:latest
+          imagePullPolicy: IfNotPresent
+          ports:
+            - containerPort: 8080
+              protocol: TCP
+          resources:
+            limits:
+              cpu: 200m
+              memory: 64Mi
+            requests:
+              cpu: 100m
+              memory: 32Mi
+          livenessProbe:
+            httpGet:
+              path: /
+              port: 8080
+            initialDelaySeconds: 60
+            periodSeconds: 10
+          readinessProbe:
+            httpGet:
+              path: /
+              port: 8080
+            initialDelaySeconds: 60
+            periodSeconds: 10
