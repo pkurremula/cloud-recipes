@@ -5,6 +5,7 @@ A handy reference and recipes on Kubernetes.
 ## Guides and Docs
 
 * [Kubernetes](docs/notes.md) - Notes on Kubernetes.
+* [Connecting to GKE](docs/gke.md) - Connect to GKE.
 
 ## Recipes
 

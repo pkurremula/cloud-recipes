@@ -4,7 +4,7 @@ metadata:
   name: hello-go-ports
 spec:
   containers:
-    - image: gcr.io/cybersamx-public/hello-go:latest
+    - image: cybersamx/hello-go:latest
       name: hello-go
       # Detailed ports configuration.
       ports:

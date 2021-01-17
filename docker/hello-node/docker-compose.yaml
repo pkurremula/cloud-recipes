@@ -9,4 +9,4 @@ services:
       context: .
       dockerfile: Dockerfile
     # Tag
-    image: hello-node
+    image: cybersamx/hello-node

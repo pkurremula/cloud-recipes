@@ -1,0 +1,11 @@
+version: '3.7'
+
+services:
+  shell-tool:
+    tty: true
+    stdin_open: true
+    container_name: shell-tool
+    build:
+      context: .
+      dockerfile: Dockerfile
+    image: cybersamx/shell-tool

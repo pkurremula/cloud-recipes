@@ -8,5 +8,4 @@ services:
     build:
       context: .
       dockerfile: Dockerfile
-    # Tag
-    image: hello-go
+    image: cybersamx/hello-go

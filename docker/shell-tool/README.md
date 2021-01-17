@@ -1,6 +1,6 @@
 # Go Docker Container
 
-A hello world app written in Go and used to build an container image for used in some of the Docker, Kubernetes, and Helm recipes.
+An image can be used to create a shell session within a Kubernetes cluster for testing and troubleshooting. It is still a work-in-progress, hope to add more tools.
 
 ## Setup
 

@@ -1,32 +1,13 @@
 # Pod
 
-Create a Pod.
-
-One of the simplest manifest file for creating a Pod is [pod.yaml](pod-simple.yaml). Other variants of creating the same pod but with additional configurations or add-ons can be found in [variants](variants).
+One of the simplest manifest file for creating a Pod is [pod.yaml](pod-simple.yaml). Other variants for creating the same pod but with additional configurations can be found in [variants](variants).
 
 ## Setup
 
-1. Create a GKE cluster with one of the following ways: gcloud or Terraform.
+1. Connect to a cluster and switch to the Kubernetes context.
 
    ```bash
-   $ gcloud config set project <project-id>
-   $ gcloud config set compute/region us-west1
-   $ gcloud container clusters create dev-gke --num-nodes 1 --region=us-west1
-   $ gcloud container clusters get-credentials dev-gke --region=us-west1
-   ```
-   
-   Or use the [default-node-pool](../../terraform/gcp/gke/default-node-pool) recipe in this repo to create a GKE cluster.
-   
-1. The context added by gcloud includes other metadata, which makes it long. Optionally change the context name.
-
-   ```bash
-   $ kubectl config get-contexts
-   CURRENT NAME                           CLUSTER                        AUTHINFO                       NAMESPACE
-   *       gke_<project>_<region>_dev-gke gke_<project>_<region>_dev-gke gke_<project>_<region>_dev-gke
-   $ kubectl config rename-context gke_<project>_<region>_dev-gke dev-gke
-   $ kubectl config get-contexts
-   CURRENT NAME                           CLUSTER                        AUTHINFO                       NAMESPACE
-   *       dev-gke                        gke_<project>_<region>_dev-gke gke_<project>_<region>_dev-gke
+   $ kubectl config use-context my-context
    ```
 
 1. Create the pod.
