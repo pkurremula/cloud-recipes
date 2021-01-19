@@ -17,6 +17,7 @@ A handy reference and recipes on Kubernetes.
   * [Ingress](ingress)
 * Workload
   * [Deployment](deployment)
+  * [Volume](volume)
 
 ## Reference
 

@@ -1,0 +1,28 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: mongo-pod
+  labels:
+    app: mongo-app
+spec:
+  containers:
+    - name: mongo-container
+      image: mongo:4.4.3-bionic
+      ports:
+        - containerPort: 27017
+      env:
+        - name: MONGO_INITDB_ROOT_USERNAME
+          value: "root"
+        - name: MONGO_INITDB_ROOT_PASSWORD
+          value: "password"
+        - name: MONGO_INITDB_DATABASE
+          value: "cloud-recipes"
+      volumeMounts:
+        # Names here must match the names in volumes block (see below).
+        - name: seed-data
+          # Must be absolute path.
+          mountPath: /docker-entrypoint-initdb.d/seed-data.js
+  volumes:
+    - name: seed-data
+      configMap:
+        name: mongo-seed-config

@@ -1,0 +1,33 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: mongo-seed-config
+  labels:
+    app: mongo-app
+data:
+  seed-data.js: |
+    function randDate() {
+        return new Date(Date.now() - Math.floor(Math.random() * 3600000));
+    }
+
+    db.users.drop();
+    db.users.insertMany([
+        {
+            username: 'admin',
+            email: 'superuser@example.com',
+            age: 40,
+            createdAt: randDate(),
+        },
+        {
+            username: 'chan',
+            email: 'michael.chan@example.com',
+            age: 24,
+            createdAt: randDate(),
+        },
+        {
+            username: 'john',
+            email: 'jonny@example.com',
+            age: 31,
+            createdAt: randDate(),
+        },
+    ]);

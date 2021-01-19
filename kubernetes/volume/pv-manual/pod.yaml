@@ -1,0 +1,21 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: mongo-pod
+  labels:
+    app: mongo
+spec:
+  containers:
+    - name: mongo-container
+      image: mongo:4.4.3-bionic
+      ports:
+        - containerPort: 27017
+      volumeMounts:
+        # Names here must match the names in volumes block (see below).
+        - name: mongo-storage
+          mountPath: "/data/db"
+  volumes:
+    - name: mongo-storage
+      persistentVolumeClaim:
+        # claimName here needs to match the pvc name.
+        claimName: mongo-pvc

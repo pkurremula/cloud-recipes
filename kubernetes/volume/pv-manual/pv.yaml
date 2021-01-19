@@ -1,0 +1,16 @@
+apiVersion: v1
+kind: PersistentVolume
+metadata:
+  name: mongo-pv
+  labels:
+    app: mongo
+spec:
+  storageClassName: manual
+  capacity:
+    # How much space to allocate the pv.
+    storage: 128Mi
+  accessModes:
+    - ReadWriteOnce
+  hostPath:
+    # The path on the Node.
+    path: "/tmp/mongo/data"
