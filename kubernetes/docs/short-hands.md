@@ -16,4 +16,5 @@ You can use the following shorthands in `kubectl`.
 | Pod                     | po         |
 | ReplicaSet              | rs         |
 | ServiceAccount          | sa         |
-| Service                 | svc        |  
+| Service                 | svc        |
+| StatefulSet             | sts        |
