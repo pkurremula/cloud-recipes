@@ -8,6 +8,12 @@ This recipe will create an Ingress object using the Google LoadBalancer.
 
 ## Setup
 
+1. Connect to a GKE cluster.
+
+   ```bash
+   $ kubectl config use-context my-gke-cluster
+   ```
+
 1. Create a [pod](../pod).   
 1. Create a [NodePort-based service](../service).
 1. Create an Ingress.
