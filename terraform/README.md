@@ -55,6 +55,7 @@ A handy reference and recipes on Terraform.
     * [VPC for GKE](gcp/network/gke-network) - A recipe to create a VPC for hosting GKE clusters.
   * GCB
     * [Full Cloud Build](gcp/gcb/full) - A recipe to create a Cloud Build (GCB) trigger and proper IAM bindings to Secret Manager (secrets injection) and GCR/GCS (artifact storage).
+    * [Inline build config and parallel build steps](gcp/gcb/inline-parallel) - 2 recipes: create a GCB trigger with inline build config with parallel build steps.
   * GCE
     * [Simple](gcp/gce/simple) - A simple recipe to create an GCE instance.
     * [Startup script](gcp/gce/startup-script) - A recipe that uses the `templatefile` function to inject a startup script to configure the GCE instance further during its creation.
