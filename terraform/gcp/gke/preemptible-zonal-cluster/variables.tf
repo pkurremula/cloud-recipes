@@ -1,5 +1,5 @@
 variable "region" {
-  description = "The GCE region."
+  description = "The GCP region."
   type        = string
   default     = "us-west1"
 }

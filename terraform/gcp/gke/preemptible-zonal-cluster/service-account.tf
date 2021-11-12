@@ -1,7 +1,7 @@
 resource "google_service_account" "gke_sa" {
   project      = var.project
-  account_id   = "${var.prefix}-gke-sa"
-  display_name = "${var.prefix}-gke-sa"
+  account_id   = "${var.gke.prefix}-gke-sa"
+  display_name = "${var.gke.prefix}-gke-sa"
 }
 
 # Grant sa write access to monitoring policy.
