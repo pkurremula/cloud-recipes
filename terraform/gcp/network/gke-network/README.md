@@ -9,7 +9,7 @@ This recipe produces the following resources and functions:
   * A subnet for GKE clusters with pods and services secondary ip ranges.
   * A nat routing setup for both subnets.
 
-**NOTE: This creates a resource in GCP after running `terraform apply`. Don't forget to remove the resource by running `terraform destroy` after you are done.**
+**NOTE: This Terraform module creates resources on GCP, which you will be charged. Don't forget to remove the resources by running `terraform destroy` after you are done.**
 
 ## Setup
    

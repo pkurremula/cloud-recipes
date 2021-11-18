@@ -14,7 +14,7 @@ This recipe produces the following resources and functions:
   * Autoscaling (at the node pool level).
   * Use preemptible nodes.
 
-**NOTE: This creates a resource in GCP after running `terraform apply`. Don't forget to remove the resource by running `terraform destroy` after you are done.**
+**NOTE: This Terraform module creates resources on GCP, which you will be charged. Don't forget to remove the resources by running `terraform destroy` after you are done.**
 
 ## Notes
 

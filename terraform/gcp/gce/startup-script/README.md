@@ -9,7 +9,7 @@ This recipe produces the following resources and functions:
 * Firewall rules with ports 80 and 443 ingress and anywhere egress.
 * Random select an availability zone within the region.
 
-**NOTE: This creates a resource in GCP after running `terraform apply`. Don't forget to remove the resource by running `terraform destroy` after you are done.**
+**NOTE: This Terraform module creates resources on GCP, which you will be charged. Don't forget to remove the resources by running `terraform destroy` after you are done.**
 
 ## Setup
 

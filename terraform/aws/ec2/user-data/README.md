@@ -9,7 +9,7 @@ This recipe produces the following resources and functions:
 * A ssh key assigned to the instance.
 * Security groups associated with the instance.
 
-**NOTE: This creates a resource in AWS after running `terraform apply`. Don't forget to remove the resource by running `terraform destroy` after you are done.**
+**NOTE: This Terraform module creates resources on AWS, which you will be charged. Don't forget to remove the resources by running `terraform destroy` after you are done.**
 
 ## Setup
 

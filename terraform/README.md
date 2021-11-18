@@ -35,12 +35,13 @@ A handy reference and recipes on Terraform.
   * [Makefile](tools/makefile) - A sample Makefile for a Terraform project.    
 * AWS
   * Network
+    * [Bastion](aws/network/bastion) - A recipe to bastion to connect to the private subnet in a VPC.
+    * [EKS Network](aws/network/eks-network) - A more advanced recipe for creating a network for hosting EKS.
+    * [Public and private subnets](aws/network/public-private-subnets) - A recipe to create public/private subnets.
     * [Simple VPC](aws/network/simple-vpc) - A simple recipe to create a VPC.
     * [Secondary CIDR blocks](aws/network/secondary-cidr-blocks) - A recipe to extend VPC IP address range.
-    * [Public and private subnets](aws/network/public-private-subnets) - A recipe to create public/private subnets.
-    * [Bastion](aws/network/bastion) - A recipe to bastion to connect to the private subnet in a VPC.
   * Security Group
-    * [Simple](aws/security-group/simple) - A simple recipe to create a security group.  
+    * [Simple](aws/security-group/simple) - A simple recipe to create a security group.
     * [Dynamic](aws/security-group/dynamic) - A recipe that creates multiple rules in a security group using the `dynamic` block and a list.
     * [ICMP](aws/security-group/icmp) - An example of a security group that allows incoming ICMP echo (ping).
   * ECR

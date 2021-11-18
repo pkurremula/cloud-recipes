@@ -7,7 +7,7 @@ There are 2 ways to define an AWS security group:
 1. Using a standalone `aws_security_group` module with embedded `ingress` and `egress` blocks.
 1. Using a `aws_security_group` module with associated a set of `aws_security_group_rule` modules
 
-**NOTE: This creates a resource in AWS after running `terraform apply`. Don't forget to remove the resource by running `terraform destroy` after you are done.**
+**NOTE: This Terraform module creates resources on AWS, which you will be charged. Don't forget to remove the resources by running `terraform destroy` after you are done.**
 
 ## Setup
    
