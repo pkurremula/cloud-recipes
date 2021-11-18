@@ -7,9 +7,11 @@ A handy reference and recipes on Terraform.
 * Basics
   * Collection
     * [Clean up a list](basics/collection/clean-up) - Use distinct and compact to clean up a list.
+    * [Join lists](basics/collection/join-lists) - Combine multiple lists into a list.  
     * [List to string](basics/collection/list-to-string) - Convert a list of strings to a string of the objects delimited by a comma.
     * [Map](basics/collection/map) - Create maps using the `{}` operator and the `map` function.
     * [Operator \[\] vs Element](basics/collection/operator-element) - The difference between the `[]` operator and  the`element` function.
+    * [String to list](basics/collection/string-to-list) - Convert a string into a list.
   * If-Else
     * [If-Else conditional](basics/if-else) - Sample code that demonstrates how if-else statements are implemented in Terraform.  
   * Loop

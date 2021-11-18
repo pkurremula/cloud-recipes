@@ -7,7 +7,7 @@ Information is currently only for Mac.
 1. Install gcloud via Homebrew.
 
    ```bash
-   $ brew cask install google-cloud-sdk
+   $ brew install google-cloud-sdk
    ```
 
 1. Install optional gcloud components.
