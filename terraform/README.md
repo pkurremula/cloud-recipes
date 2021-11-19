@@ -52,7 +52,7 @@ A handy reference and recipes on Terraform.
     * [Cluster](aws/ec2/cluster) - A recipe for creating a cluster of multiple EC2 instances.
     * [User-data](aws/ec2/user-data) - A recipe that uses the `templatefile` function to inject a startup script to configure the EC2 instance further during its creation.
   * EKS
-    * [Simple](aws/eks/simple) - A simple recipe for creating an EKS cluster.
+    * [Module](aws/eks/module) - A recipe for creating an EKS cluster.
 * GCP
   * Network
     * [Simple VPC](gcp/network/simple-vpc) - A simple recipe for creating a VPC.

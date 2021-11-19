@@ -1,10 +1,10 @@
 # Private Subnet
 
 resource "aws_subnet" "private" {
-  count = length(var.subnets.private_cidrs)
+  count = length(var.private_subnet_cidrs)
 
   vpc_id            = aws_vpc.default.id
-  cidr_block        = element(var.subnets.private_cidrs, count.index)
+  cidr_block        = element(var.private_subnet_cidrs, count.index)
   availability_zone = element(local.azs, count.index)
 
   tags = merge(var.tags, {
@@ -53,7 +53,7 @@ resource "aws_route" "nat" {
 }
 
 resource "aws_route_table_association" "private" {
-  count = length(var.subnets.private_cidrs)
+  count = length(var.private_subnet_cidrs)
 
   route_table_id = element(aws_route_table.private.*.id, count.index)
   subnet_id      = element(aws_subnet.private.*.id, count.index)

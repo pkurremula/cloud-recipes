@@ -7,10 +7,12 @@ output "vpc" {
   }
 }
 
-output "nat_gateway" {
-  description = "NAT"
-  value = {
-    public_subnet_ids = aws_subnet.public.*.id
-    private_subnet_ids = aws_subnet.private.*.id
-  }
+output "public_subnet_ids" {
+  description = "A list of public subnet ids"
+  value = aws_subnet.public.*.id
+}
+
+output "private_subnet_ids" {
+  description = "A list of private subnet ids"
+  value = aws_subnet.private.*.id
 }

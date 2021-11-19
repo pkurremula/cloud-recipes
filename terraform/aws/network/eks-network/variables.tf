@@ -23,13 +23,16 @@ variable "vpc" {
   }
 }
 
-variable "subnets" {
-  description = "The private subnet settings."
-  type        = map(list(string))
-  default = {
-    public_cidrs  = ["10.0.10.0/24", "10.0.11.0/24", "10.0.12.0/24"]
-    private_cidrs = ["10.0.1.0/24", "10.0.2.0/24", "10.0.3.0/24"]
-  }
+variable "public_subnet_cidrs" {
+  description = "The CIDRs for the public subnets."
+  type        = list(string)
+  default     = ["10.0.10.0/24", "10.0.11.0/24", "10.0.12.0/24"]
+}
+
+variable "private_subnet_cidrs" {
+  description = "The CIDRs for the private subnets."
+  type        = list(string)
+  default     = ["10.0.1.0/24", "10.0.2.0/24", "10.0.3.0/24"]
 }
 
 variable "tags" {
