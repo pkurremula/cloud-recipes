@@ -37,30 +37,32 @@ A handy reference and recipes on Terraform.
   * Network
     * [Bastion](aws/network/bastion) - A recipe to bastion to connect to the private subnet in a VPC.
     * [EKS Network](aws/network/eks-network) - A more advanced recipe for creating a network for hosting EKS.
-    * [Public and private subnets](aws/network/public-private-subnets) - A recipe to create public/private subnets.
-    * [Simple VPC](aws/network/simple-vpc) - A simple recipe to create a VPC.
+    * [Public and private subnets](aws/network/public-private-subnets) - A recipe for creating public/private subnets.
+    * [Simple VPC](aws/network/simple-vpc) - A simple recipe for creating a VPC.
     * [Secondary CIDR blocks](aws/network/secondary-cidr-blocks) - A recipe to extend VPC IP address range.
   * Security Group
-    * [Simple](aws/security-group/simple) - A simple recipe to create a security group.
+    * [Simple](aws/security-group/simple) - A simple recipe for creating a security group.
     * [Dynamic](aws/security-group/dynamic) - A recipe that creates multiple rules in a security group using the `dynamic` block and a list.
     * [ICMP](aws/security-group/icmp) - An example of a security group that allows incoming ICMP echo (ping).
   * ECR
-    * [Simple](aws/ecr/simple) - A simple recipe to create an ECR repository.          
+    * [Simple](aws/ecr/simple) - A simple recipe for creating an ECR repository.          
   * EC2
-    * [Simple](aws/ec2/simple) - A simple recipe to create an EC2 instance.
-    * [Production](aws/ec2/production) - A recipe to create an EC2 instance in production.
-    * [Cluster](aws/ec2/cluster) - A recipe to create a cluster of multiple EC2 instances.
+    * [Simple](aws/ec2/simple) - A simple recipe for creating an EC2 instance.
+    * [Production](aws/ec2/production) - A recipe for creating an EC2 instance in production.
+    * [Cluster](aws/ec2/cluster) - A recipe for creating a cluster of multiple EC2 instances.
     * [User-data](aws/ec2/user-data) - A recipe that uses the `templatefile` function to inject a startup script to configure the EC2 instance further during its creation.
+  * EKS
+    * [Simple](aws/eks/simple) - A simple recipe for creating an EKS cluster.
 * GCP
   * Network
-    * [Simple VPC](gcp/network/simple-vpc) - A simple recipe to create a VPC.
-    * [Shared VPC](gcp/network/shared-vpc) - A recipe to create a shared VPC.
-    * [VPC for GKE](gcp/network/gke-network) - A recipe to create a VPC for hosting GKE clusters.
+    * [Simple VPC](gcp/network/simple-vpc) - A simple recipe for creating a VPC.
+    * [Shared VPC](gcp/network/shared-vpc) - A recipe for creating a shared VPC.
+    * [VPC for GKE](gcp/network/gke-network) - A recipe for creating a VPC for hosting GKE clusters.
   * GCB
-    * [Full Cloud Build](gcp/gcb/full) - A recipe to create a Cloud Build (GCB) trigger and proper IAM bindings to Secret Manager (secrets injection) and GCR/GCS (artifact storage).
+    * [Full Cloud Build](gcp/gcb/full) - A recipe for creating a Cloud Build (GCB) trigger and proper IAM bindings to Secret Manager (secrets injection) and GCR/GCS (artifact storage).
     * [Inline build config and parallel build steps](gcp/gcb/inline-parallel) - 2 recipes: create a GCB trigger with inline build config with parallel build steps.
   * GCE
-    * [Simple](gcp/gce/simple) - A simple recipe to create an GCE instance.
+    * [Simple](gcp/gce/simple) - A simple recipe for creating an GCE instance.
     * [Startup script](gcp/gce/startup-script) - A recipe that uses the `templatefile` function to inject a startup script to configure the GCE instance further during its creation.
   * [GCR](gcp/gcr) - Push/pull Docker images to the private container repository on GCP.
     * [GCR with Access Control](gcp/gcr/access-control) - Explicitly create a GCR and binding it with IAM members with roles for access.

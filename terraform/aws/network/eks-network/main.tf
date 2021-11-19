@@ -2,11 +2,10 @@ terraform {
   required_version = "~> 1.0.11"
 
   required_providers {
+    # Check https://registry.terraform.io/providers/hashicorp/aws/latest for versions.
     aws = {
       source = "aws"
-
-      # Check https://registry.terraform.io/providers/hashicorp/aws/latest for versions.
-      version = "~> 3.65.0"
+      version = "~> 3.66.0"
     }
   }
 }

@@ -31,3 +31,16 @@ variable "subnets" {
     private_cidrs = ["10.0.1.0/24", "10.0.2.0/24", "10.0.3.0/24"]
   }
 }
+
+variable "tags" {
+  description = "Tags for this module. Tag terraform = true to denote a resource is provisioned by Terraform."
+  type        = map(string)
+  default = {
+    Terraform = true
+  }
+}
+
+variable "cluster_name" {
+  description = "Network needs to be tagged with the name of cluster."
+  type        = string
+}

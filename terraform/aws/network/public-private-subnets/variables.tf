@@ -8,6 +8,11 @@ variable "name" {
   type        = string
 }
 
+variable "profile" {
+  description = "The AWS profile"
+  type        = string
+}
+
 variable "env" {
   description = "The environment associated with the VPC."
   type        = string
@@ -28,21 +33,23 @@ variable "tags" {
 
 variable "public_subnets" {
   description = "List of public subnet configurations."
-  type = list(object({
-    name          = string
-    az            = string
-    cidr          = string
-    map_public_ip = bool // Map an auto-assigned public IP address.
-  }))
-  default = []
+  type = list(object(
+    {
+      name          = string
+      az            = string
+      cidr          = string
+      map_public_ip = bool // Map an auto-assigned public IP address.
+    }
+  ))
 }
 
 variable "private_subnets" {
   description = "List of private subnet configurations."
-  type = list(object({
-    name = string
-    az   = string
-    cidr = string
-  }))
-  default = []
+  type = list(object(
+    {
+      name = string
+      az   = string
+      cidr = string
+    }
+  ))
 }
