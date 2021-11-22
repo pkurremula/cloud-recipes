@@ -8,7 +8,7 @@ module "eks" {
 
   cluster_name    = local.cluster_name
   cluster_version = "1.21"
-  subnets         = compact(flatten([module.network.private_subnet_ids, module.network.public_subnet_ids]))
+  subnets         = module.network.private_subnet_ids
 
   vpc_id = module.network.vpc.id
 

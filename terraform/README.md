@@ -12,6 +12,8 @@ A handy reference and recipes on Terraform.
     * [Map](basics/collection/map) - Create maps using the `{}` operator and the `map` function.
     * [Operator \[\] vs Element](basics/collection/operator-element) - The difference between the `[]` operator and  the`element` function.
     * [String to list](basics/collection/string-to-list) - Convert a string into a list.
+  * Dynamic
+    * [Using dynamic block](basics/dynamic) - How to use a dynamic block.
   * If-Else
     * [If-Else conditional](basics/if-else) - Sample code that demonstrates how if-else statements are implemented in Terraform.  
   * Loop
