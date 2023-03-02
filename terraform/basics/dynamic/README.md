@@ -1,71 +1,91 @@
 # Dynamic Block
 
-Sometimes we may find yourself just instantiating the same resource block multiple times. A good example is adding domains to AWS Route 53 using the `aws_route53_zone` block. We are going to end up repeating creating a `aws_route53_zone` block multiple times. Like
+You may encounter a resource block with a set of 0 to n nested blocks of the same type. And writing repeated nested blocks may be tedious. For example:
 
 ```terraform
-resource "aws_route53_zone" "production" {
-  name    = var.prod_domain
-  comment = "Production domain."
+resource "snowflake_table" "my_table" {
+  database = snowflake_database.my_db.name
+  schema   = "my_schema"
+  name     = "my_table"
 
-  tags = {
-    Env = "production"
+  column {
+    name = rider_id
+    type = "integer"
+    nullable = false
   }
-}
 
-resource "aws_route53_zone" "staging" {
-  name    = var.staging_domain
-  comment = "Staging domain."
-
-  tags = {
-    Env = "staging"
+  column {
+    name = start_time
+    type = "timestamp_ntz(9)"
+    nullable = false
   }
-}
 
-resource "aws_route53_zone" "dev" {
-  name    = var.dev_domain
-  comment = "Dev domain."
+  column {
+    name = end_time
+    type = "timestamp_ntz(9)"
+    nullable = false
+  }
 
-  tags = {
-    Env = "dev"
+  column {
+    name = start_station
+    type = "text"
+    nullable = true
+  }
+
+  column {
+    name = end_station
+    type = "text"
+    nullable = true
   }
 }
 ```
 
-We can also use the `dynamic` block and do it this way.
+We can dynamically create these repeatable nested blocks using a terraform construct call `dynamic` block. So the above example can be rewritten as:
 
 ```terraform
 locals {
-  zones = {
-    (var.prod_domain) = {
-      comment = "Production domain."
-      tags = {
-        Env = "production"
+  my_table = {
+    columns = {
+      rider_id = {
+        type     = "integer"
       }
-    },
-    (var.staging_domain) = {
-      comment = "Staging domain."
-      tags = {
-        Env = "staging"
+      start_time = {
+        type     = "timestamp_ntz(9)"
       }
-    },
-    (var.dev_domain) = {
-      comment = "Dev domain."
-      tags = {
-        Env = "dev"
+      end_time = {
+        type     = "timestamp_ntz(9)"
       }
-    },
+      start_location = {
+        type     = "text"
+        nullable = true
+      }
+      end_location = {
+        type     = "text"
+        nullable = true
+      }
+    }
   }
 }
 
-resource "aws_route53_zone" "zones" {
-  for_each = local.zones
+resource "snowflake_table" "my_table" {
+  database = snowflake_database.my_db.name
+  schema   = "my_schema"
+  name     = "my_table"
 
-  name    = each.key
-  comment = lookup(each.value, "comment", null)
-  tags    = lookup(each.value, "tags", {})
+  dynamic "column" {
+    for_each = local.my_table
+    content {
+      name     = column.key
+      type     = lookup(column.value, "type", "text")
+      nullable = lookup(column.value, "nullable", false)
+    }
+  }
 }
 ```
 
+The dynamic block is labeled as `column`, the iterator variable `column` (in `lookup(column.value...)`) should be set to match the dynamic block label.
+
+
 ## Reference
 
-* [Terraform: dynamic block](https://www.terraform.io/docs/language/expressions/dynamic-blocks.html)
+* [Terraform: dynamic block](https://developer.hashicorp.com/terraform/language/expressions/dynamic-blocks)
