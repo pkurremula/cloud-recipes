@@ -18,7 +18,10 @@ A handy reference and recipes on Terraform.
     * [If-Else conditional](basics/if-else) - Sample code that demonstrates how if-else statements are implemented in Terraform.  
   * Loop
     * [Count vs for vs for_each](basics/loop) - The 3 constructs `count`, `for`, and `for_each` for looping in Terraform.
-    * [Iterate a map](basics/loop/for-map) - Loop through a map.
+    * [Count](basics/loop/count) - Iteration using `count`.
+    * [Iterate a list](basics/loop/for) - Loop through a list using `for`.
+    * [Iterate a map](basics/loop/for-map) - Loop through a map using `for`.
+    * [Nested loop](basics/nested-loop) - Implement nested loop in Terraform by flattening a collection.
   * String
     * [Append to a string](basics/string/append) - Append a string to a string, the Terraform way.
     * [Formatting and interpolation](basics/string/format-n-interpolation) - Terraform string formatting and interpolation.
