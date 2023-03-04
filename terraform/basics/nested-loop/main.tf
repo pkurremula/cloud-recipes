@@ -8,8 +8,16 @@ locals {
       tables = {
         "my_table1" = {
           name = "my_table1"
-          role = "my_role"
-          privileges = ["SELECT", "INSERT"]
+          privileges = {
+            SELECT = {
+              name = "SELECT"
+              roles = ["my_role1", "my_role2"]
+            }
+            INSERT = {
+              name = "INSERT"
+              roles = ["my_role1"]
+            }
+          }
         }
       }
     }
@@ -18,8 +26,12 @@ locals {
       tables = {
         "my_table1" = {
           name = "my_table1"
-          role = "my_role"
-          privileges = []
+          privileges = {
+            SELECT = {
+              name = "SELECT"
+              roles = ["my_role1"]
+            }
+          }
         }
       }
     }
@@ -30,18 +42,31 @@ locals {
   table_privileges = distinct(flatten([
     for schema in local.schemas : [
       for table in schema.tables : [
-        for privilege in lookup(table, "privileges", []) : {
+        for privilege in table.privileges : {
           schema    = schema.name
           table     = table.name
-          role      = table.role
-          privilege = privilege
+          privilege = privilege.name
+          roles     = privilege.roles
         }
       ]
     ]
   ]))
 }
 
-output "table_privileges" {
+data "null_data_source" "foreach" {
+  for_each = {
+    for item in local.table_privileges : "${item.schema}.${item.table}.${item.privilege}" => item
+  }
+
+  inputs = {
+    privilege = each.value.privilege
+  }
+}
+
+output "privileges_list" {
   value = local.table_privileges
 }
 
+output "privileges" {
+  value = values(data.null_data_source.foreach)[*].outputs.privilege
+}
